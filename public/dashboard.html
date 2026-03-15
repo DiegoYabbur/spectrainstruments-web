@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpectraCloud | Panel de Telemetría</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+    
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-brand">
+            <h2>SPECTRA_</h2>
+            <span class="badge live">LIVE</span>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                Panel General
+            </a>
+            <a href="nodos.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                  <line x1="20" y1="9" x2="23" y2="9"></line>
+                  <line x1="20" y1="14" x2="23" y2="14"></line>
+                  <line x1="1" y1="9" x2="4" y2="9"></line>
+                  <line x1="1" y1="14" x2="4" y2="14"></line>
+                </svg>
+                Mis Nodos
+            </a>
+            <a href="exportar.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                Exportar Datos (CSV/ZIP)
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="user-info">
+                <p class="user-id">Cargando...</p>
+                <p class="user-role">Acceso Autorizado</p>
+            </div>
+            <a href="spectracloud.html" class="nav-item logout">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"></path></svg>
+                Cerrar Sesión
+            </a>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+        
+        <header class="dashboard-header">
+            <div>
+                <h1 class="dash-title">CENTRO DE CONTROL</h1>
+                <p class="dash-subtitle" id="val-time">Conectando con la base de datos...</p>
+            </div>
+            <div class="dash-actions" style="display: flex; gap: 15px; align-items: center;">
+                <div style="display: flex; flex-direction: column; text-align: right;">
+                    <label for="node-selector" style="font-family: 'JetBrains Mono'; font-size: 10px; color: #888; margin-bottom: 5px;">ESTACIÓN ACTIVA:</label>
+                    <select id="node-selector" class="chart-filter" style="padding: 10px; border-color: var(--spectra-accent);">
+                        <option value="all">-- Buscando Equipos --</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <span class="kpi-label">TEMPERATURA AMBIENTE</span>
+                <div class="kpi-value"><span id="val-temp">--</span> <span class="unit">°C</span></div>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">HUMEDAD RELATIVA</span>
+                <div class="kpi-value"><span id="val-hum">--</span> <span class="unit">%</span></div>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">VELOCIDAD VIENTO</span>
+                <div class="kpi-value"><span id="val-viento">--</span> <span class="unit">km/h</span></div>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">TENSIÓN BATERÍA</span>
+                <div class="kpi-value"><span id="val-bat">--</span> <span class="unit">V</span></div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card main-chart">
+                <div class="chart-header" style="flex-wrap: wrap; gap: 15px;">
+                    <h3>SERIE TEMPORAL: TELEMETRÍA</h3>
+                    
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <select id="time-selector" class="chart-filter">
+                            <option value="all">Histórico Completo</option>
+                            <option value="24h">Últimas 24h</option>
+                            <option value="7d">Últimos 7 días</option>
+                            <option value="1m">Este Mes</option>
+                            <option value="custom">Rango personalizado...</option>
+                        </select>
+
+                        <div id="custom-date-wrapper" style="display: none; gap: 5px; align-items: center;">
+                            <input type="date" id="date-start" class="chart-filter" style="padding: 4px; font-size: 11px;">
+                            <span style="color: #666; font-size: 10px;">hasta</span>
+                            <input type="date" id="date-end" class="chart-filter" style="padding: 4px; font-size: 11px;">
+                            <button id="btn-apply-dates" class="btn-outline" style="padding: 5px 10px; font-size: 10px; border-color: #444; color: #aaa;">Aplicar</button>
+                        </div>
+
+                        <select id="var-selector" class="chart-filter" style="border-color: var(--spectra-accent);">
+                            <option value="temp">Temperatura (°C)</option>
+                            <option value="rh">Humedad (%)</option>
+                            <option value="viento_vel">Velocidad Viento (km/h)</option>
+                            <option value="viento_dir">Dirección Viento (°)</option>
+                            <option value="presion">Presión (hPa)</option>
+                            <option value="bat_v">Batería (V)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="chart-container" style="position: relative; height:300px; width:100%">
+                    <canvas id="telemetryChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-card side-panel">
+                <div class="chart-header">
+                    <h3>LOG DE TRANSMISIONES</h3>
+                </div>
+                <ul class="data-log-list" id="log-list">
+                    <li><span class="log-msg" style="color:#666; font-size:12px;">Sincronizando con servidor...</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script>
+    // 1. SESIÓN
+    const usuarioActual = localStorage.getItem('spectraUser');
+    if (!usuarioActual) window.location.href = "spectracloud.html";
+    document.querySelector('.user-id').innerText = usuarioActual;
+    document.querySelector('.logout').addEventListener('click', () => localStorage.removeItem('spectraUser'));
+
+    let telemetriaGlobal = [];
+    let nodosDisponibles = [];
+    let spectraChart = null; 
+
+    // 2. INICIALIZAR GRÁFICO
+    function initChart() {
+        const ctx = document.getElementById('telemetryChart').getContext('2d');
+        const colorAccent = '#e5a93d';
+        
+        spectraChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [], 
+                datasets: [{
+                    label: 'Lectura', data: [],
+                    borderColor: colorAccent, backgroundColor: 'rgba(229, 169, 61, 0.15)',
+                    borderWidth: 2, pointBackgroundColor: colorAccent, pointBorderColor: '#000',
+                    pointRadius: 3, pointHoverRadius: 6, fill: true, tension: 0.3 
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { color: '#222' }, ticks: { color: '#888', maxTicksLimit: 8, font: { family: 'JetBrains Mono', size: 10 } } },
+                    y: { grid: { color: '#222' }, ticks: { color: '#888', font: { family: 'JetBrains Mono', size: 10 } } }
+                }
+            }
+        });
+    }
+
+    // 3. SELECTOR DE NODOS
+    function actualizarSelectorNodos(datos) {
+        const selector = document.getElementById('node-selector');
+        let nodoSeleccionado = selector.value;
+        const nodosEncontrados = [...new Set(datos.map(d => d.device_id).filter(Boolean))];
+        
+        if (JSON.stringify(nodosEncontrados) !== JSON.stringify(nodosDisponibles)) {
+            nodosDisponibles = nodosEncontrados;
+            selector.innerHTML = ''; 
+
+            if (nodosDisponibles.length === 0) {
+                selector.innerHTML = '<option value="all">Sin estaciones</option>';
+            } else {
+                nodosDisponibles.forEach(nodo => {
+                    const option = document.createElement('option');
+                    option.value = nodo; option.innerText = `NODO: ${nodo}`;
+                    selector.appendChild(option);
+                });
+                if (nodosDisponibles.includes(nodoSeleccionado)) {
+                    selector.value = nodoSeleccionado;
+                } else {
+                    selector.value = nodosDisponibles[0];
+                }
+            }
+        }
+    }
+
+    // 4. FILTRO DE TIEMPO
+    function filtrarDatosPorTiempo(datos) {
+        const selector = document.getElementById('time-selector').value;
+        if (selector === 'all') return datos;
+
+        const ahora = new Date();
+        let fechaInicio = new Date();
+
+        if (selector === '24h') fechaInicio.setHours(ahora.getHours() - 24);
+        else if (selector === '7d') fechaInicio.setDate(ahora.getDate() - 7);
+        else if (selector === '1m') fechaInicio.setMonth(ahora.getMonth() - 1);
+        else if (selector === 'custom') {
+            const start = document.getElementById('date-start').value;
+            const end = document.getElementById('date-end').value;
+            if (start && end) {
+                const s = new Date(start);
+                const e = new Date(end); e.setHours(23, 59, 59);
+                return datos.filter(d => {
+                    const fd = new Date(d.created_at);
+                    return fd >= s && fd <= e;
+                });
+            }
+            return datos; 
+        }
+        return datos.filter(d => new Date(d.created_at) >= fechaInicio);
+    }
+
+    // 5. RENDERIZAR INTERFAZ (Seguro contra nulos)
+    function renderizarVista() {
+        if (telemetriaGlobal.length === 0) return;
+
+        const nodoActual = document.getElementById('node-selector').value;
+        const datosDelNodo = telemetriaGlobal.filter(d => d.device_id === nodoActual);
+
+        if (datosDelNodo.length === 0) {
+            document.getElementById('log-list').innerHTML = "<li><span class='log-msg' style='color:#e5a93d;'>Sin telemetría para esta estación.</span></li>";
+            spectraChart.data.labels = []; spectraChart.data.datasets[0].data = []; spectraChart.update();
+            return;
+        }
+
+        // --- KPIs ---
+        const ultimoRegistro = datosDelNodo[0] || {}; 
+        
+        if(document.getElementById('val-temp')) document.getElementById('val-temp').innerText = (ultimoRegistro.temp != null) ? ultimoRegistro.temp : '--';
+        if(document.getElementById('val-hum')) document.getElementById('val-hum').innerText = (ultimoRegistro.rh != null) ? ultimoRegistro.rh : '--';
+        if(document.getElementById('val-viento')) document.getElementById('val-viento').innerText = (ultimoRegistro.viento_vel != null) ? ultimoRegistro.viento_vel : '--';
+        if(document.getElementById('val-bat')) document.getElementById('val-bat').innerText = (ultimoRegistro.bat_v != null) ? ultimoRegistro.bat_v : '--';
+        
+        if(document.getElementById('val-time')){
+            const fechaUltima = new Date(ultimoRegistro.created_at);
+            document.getElementById('val-time').innerText = "Último paquete: " + fechaUltima.toLocaleTimeString() + " (" + fechaUltima.toLocaleDateString() + ")";
+        }
+
+        // --- GRÁFICO ---
+        const datosParaGrafico = filtrarDatosPorTiempo(datosDelNodo);
+        const variableElegida = document.getElementById('var-selector').value;
+        
+        const datosOrdenados = [...datosParaGrafico].reverse(); 
+
+        spectraChart.data.labels = datosOrdenados.map(d => {
+            const f = new Date(d.created_at);
+            return `${f.getDate()}/${f.getMonth()+1} ${f.getHours().toString().padStart(2, '0')}:${f.getMinutes().toString().padStart(2, '0')}`;
+        });
+        
+        spectraChart.data.datasets[0].data = datosOrdenados.map(d => d[variableElegida]);
+        
+        const nombresVariable = {
+            'temp': 'Temperatura (°C)', 'rh': 'Humedad Relativa (%)',
+            'viento_vel': 'Velocidad Viento (km/h)', 'viento_dir': 'Dirección Viento (°)',
+            'presion': 'Presión Barométrica (hPa)', 'bat_v': 'Tensión Batería (V)'
+        };
+        spectraChart.data.datasets[0].label = nombresVariable[variableElegida];
+        spectraChart.update();
+
+        // --- LOGS ---
+        const logList = document.getElementById('log-list');
+        if(logList) {
+            logList.innerHTML = ''; 
+            const top10 = datosDelNodo.slice(0, 10);
+            
+            top10.forEach(registro => {
+                const d = new Date(registro.created_at);
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span class="log-time">${d.toLocaleDateString()} ${d.toLocaleTimeString()}</span> 
+                    <span class="log-msg">T: ${registro.temp != null ? registro.temp : '-'}°C, H: ${registro.rh != null ? registro.rh : '-'}%, Vbat: ${registro.bat_v != null ? registro.bat_v : '-'}V</span>
+                `;
+                logList.appendChild(li);
+            });
+        }
+    }
+
+    // 6. OBTENER DATOS (La llamada principal)
+    async function cargarTelemetria() {
+        try {
+            const respuesta = await fetch(`/api/mediciones?usuario=${usuarioActual}`);
+            const datos = await respuesta.json();
+
+            if(datos && datos.length > 0) {
+                telemetriaGlobal = datos;
+                actualizarSelectorNodos(datos);
+                renderizarVista(); 
+            } else {
+                document.getElementById('node-selector').innerHTML = '<option value="all">Sin equipos registrados</option>';
+                document.getElementById('log-list').innerHTML = "<li><span class='log-msg'>Base de datos vacía. Esperando estación...</span></li>";
+            }
+        } catch (error) {
+            console.error("Error conectando al backend:", error);
+        }
+    }
+
+    // 7. EVENTOS
+    document.getElementById('node-selector').addEventListener('change', renderizarVista);
+    document.getElementById('var-selector').addEventListener('change', renderizarVista);
+    
+    document.getElementById('time-selector').addEventListener('change', (e) => {
+        const wrapper = document.getElementById('custom-date-wrapper');
+        if(e.target.value === 'custom') {
+            wrapper.style.display = 'flex';
+        } else {
+            wrapper.style.display = 'none';
+            renderizarVista(); 
+        }
+    });
+
+    document.getElementById('btn-apply-dates').addEventListener('click', renderizarVista);
+
+    // 8. ARRANQUE
+    window.onload = () => {
+        initChart(); 
+        cargarTelemetria(); 
+        setInterval(cargarTelemetria, 15000); 
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpectraCloud | Plataforma de Telemetría IoT</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="grid-container">
+        <div class="header-alignment-inner">
+            <div class="header__logo">
+                <a href="index.html" class="header__heading-link">
+                    <span>SPECTRA INSTRUMENTS</span>
+                </a>
+            </div>
+            <nav class="header__inline-menu">
+                <ul class="list-menu--inline">
+                    <li class="has-mega-menu">
+                        <a href="#" class="header__menu-item"><span>PRODUCTOS ↗</span></a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-inner">
+                                <div class="mega-col">
+                                    <span class="badge new">NUEVO</span>
+                                    <div class="mega-img-placeholder">// SPECTRALOG_V1</div>
+                                    <h3>SPECTRALOG</h3>
+                                    <p>Hardware para clima y bajo consumo. LoRa + RS485 + Solar.</p>
+                                    <a href="#" class="mega-link">Ver detalles →</a>
+                                </div>
+                                <div class="mega-col">
+                                    <span class="badge soon">PRONTO</span>
+                                    <div class="mega-img-placeholder">// HARDWARE_KIT</div>
+                                    <h3>HARDWARE</h3>
+                                    <p>Placas base y kits de desarrollo OEM para integración rápida.</p>
+                                    <a href="#" class="mega-link">Más información →</a>
+                                </div>
+                                <div class="mega-col">
+                                    <span class="badge catalog">CATÁLOGO</span>
+                                    <div class="mega-img-placeholder">// SENS_STACK</div>
+                                    <h3>SENSORES</h3>
+                                    <p>Sensores industriales, meteorología e hidroponía de precisión.</p>
+                                    <a href="#" class="mega-link">Explorar →</a>
+                                </div>
+                                <div class="mega-col">
+                                    <span class="badge custom">CUSTOM</span>
+                                    <div class="mega-img-placeholder">// R&D_LABS</div>
+                                    <h3>CONSULTORÍA</h3>
+                                    <p>Diseño de PCB y hardware personalizado para minería y ciencia.</p>
+                                    <a href="contacto.html" class="mega-link">Hablemos →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="spectracloud.html" class="header__menu-item" style="color: var(--spectra-accent);"><span>SpectraCloud</span></a></li>
+                    <li><a href="soporte.html" class="header__menu-item"><span>Soporte</span></a></li>
+                    <li><a href="contacto.html" class="header__menu-item"><span>Contacto</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main style="padding-top: 80px;">
+    
+    <section class="cloud-hero-section">
+        <div class="grid-container">
+            <div class="cloud-hero-grid">
+                
+                <div class="cloud-info">
+                    <p class="cloud-subtitle">// INFRAESTRUCTURA DE DATOS</p>
+                    <h1 class="cloud-title">SPECTRACLOUD_</h1>
+                    <p class="cloud-desc">El centro de mando para tu red de hardware. Visualiza la telemetría de tus nodos <strong>spectraLog</strong>, configura alertas críticas y exporta datos para validación científica en tiempo real.</p>
+                    
+                    <div class="cloud-specs">
+                        <div class="spec-item">
+                            <span class="spec-value">99.9%</span>
+                            <span class="spec-label">UPTIME RED</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-value">256-bit</span>
+                            <span class="spec-label">ENCRIPTACIÓN AES</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-value">API REST</span>
+                            <span class="spec-label">INTEGRACIÓN NATIVA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cloud-login-panel">
+                    <div class="login-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="1.5"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                        <h3>ACCESO AL SERVIDOR</h3>
+                    </div>
+                    <form class="spectra-form login-form">
+                        <div class="form-group">
+                            <label for="cloud-user">ID DE USUARIO / CORREO</label>
+                            <input type="email" id="cloud-user" required placeholder="admin@institucion.cl">
+                        </div>
+                        <div class="form-group">
+                            <label for="cloud-pass">CLAVE DE ACCESO</label>
+                            <input type="password" id="cloud-pass" required placeholder="••••••••••••">
+                        </div>
+                        <div class="login-actions">
+                            <label class="remember-me">
+                                <input type="checkbox"> <span>Mantener conexión</span>
+                            </label>
+                            <a href="#" class="forgot-pass">¿Fallo de credenciales?</a>
+                        </div>
+                        <button type="button" class="btn-main btn-login">INICIAR SESIÓN DE DATOS →</button>
+                    </form>
+                    <div class="login-footer">
+                        <p>¿Nuevo proyecto? <a href="contacto.html">Solicitar aprovisionamiento B2B</a></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cloud-features-section">
+        <div class="grid-container">
+            <div class="section-header-center">
+                <h2>CAPACIDADES DEL SISTEMA_</h2>
+                <p>Infraestructura diseñada para procesar millones de puntos de datos desde los entornos más extremos.</p>
+            </div>
+
+            <div class="cloud-features-grid">
+                <div class="feature-card">
+                    <div class="feature-img-slot" style="background-image: url('');">
+                        <span class="placeholder-text">// RENDER_DASHBOARD_UI</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>TELEMETRÍA EN VIVO</h3>
+                        <p>Visualiza gráficos de alta resolución. Monitorea el estado de la batería, nivel de señal (RSSI) LoRaWAN y variables climáticas segundo a segundo.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-img-slot" style="background-image: url('');">
+                        <span class="placeholder-text">// RENDER_MAP_ALERTS</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>GEOLOCALIZACIÓN & ALERTAS</h3>
+                        <p>Configura umbrales de advertencia. Recibe notificaciones automáticas por correo o webhook cuando un sensor de suelo o clima detecte anomalías en terreno.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-img-slot" style="background-image: url('');">
+                        <span class="placeholder-text">// RENDER_API_EXPORT</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>EXPORTACIÓN CIENTÍFICA</h3>
+                        <p>Descarga logs históricos en formatos CSV/JSON listos para MATLAB, Python o R. Acceso completo vía API RESTful para integración con sistemas de terceros.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cloud-pricing-section">
+        <div class="grid-container">
+            <div class="section-header-center">
+                <h2>CONTRATACIÓN DE TELEMETRÍA_</h2>
+                <p>Escala tu red de sensores desde un solo nodo de investigación hasta flotas industriales enteras.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="tier-header">RESEARCH_NODE</div>
+                    <h3 class="tier-name">Licencia Básica</h3>
+                    <p class="tier-desc">Ideal para validación de prototipos y tesis.</p>
+                    <div class="tier-price">
+                        <span class="currency">$</span><span class="amount">0</span><span class="period">/incluido</span>
+                    </div>
+                    <p class="tier-subtext">Por la compra de 1x spectraLog</p>
+                    <ul class="tier-features">
+                        <li>Conexión de hasta 3 nodos</li>
+                        <li>Retención de datos: 30 días</li>
+                        <li>Exportación manual CSV</li>
+                        <li>Soporte comunitario</li>
+                    </ul>
+                    <a href="contacto.html" class="btn-outline tier-btn">CONTRATAR</a>
+                </div>
+
+                <div class="pricing-card featured-tier">
+                    <div class="tier-header accent-bg">FLEET_PRO</div>
+                    <h3 class="tier-name">Flota Industrial</h3>
+                    <p class="tier-desc">Para proyectos FONDECYT y monitoreo agrícola continuo.</p>
+                    <div class="tier-price">
+                        <span class="currency">UF</span><span class="amount">1.5</span><span class="period">/mes</span>
+                    </div>
+                    <p class="tier-subtext">Facturación anual B2B</p>
+                    <ul class="tier-features">
+                        <li>Nodos ilimitados</li>
+                        <li>Retención histórica indefinida</li>
+                        <li>Alertas SMS/Email en vivo</li>
+                        <li>Acceso API REST completo</li>
+                        <li>Soporte directo nivel ingeniero</li>
+                    </ul>
+                    <a href="contacto.html" class="btn-main tier-btn">SOLICITAR COTIZACIÓN</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="tier-header">ON_PREMISE</div>
+                    <h3 class="tier-name">Servidor Dedicado</h3>
+                    <p class="tier-desc">Despliegue privado para minería e industria pesada.</p>
+                    <div class="tier-price">
+                        <span class="amount">CUSTOM</span>
+                    </div>
+                    <p class="tier-subtext">Instalación en servidores locales</p>
+                    <ul class="tier-features">
+                        <li>Instancia SpectraCloud Privada</li>
+                        <li>Marca blanca (White-label)</li>
+                        <li>Integración SCADA / ERP</li>
+                        <li>Acuerdo de Nivel de Servicio (SLA)</li>
+                    </ul>
+                    <a href="contacto.html" class="btn-outline tier-btn">CONTACTAR VENTAS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="spectra-footer">
+    <div class="grid-container">
+        <div class="footer-container">
+            <div class="footer-col branding">
+                <h2 class="footer-logo">SPECTRA</h2>
+                <p class="footer-slogan">DETRÁS DE CADA REVOLUCIÓN_</p>
+                <p class="footer-desc">Laboratorio de I+D centrado en ingeniería deep-tech y ecosistemas IoT industriales. Desarrollamos tecnología robusta para los entornos más exigentes.</p>
+                <p class="footer-motto">No preservamos la tecnología por admiración.<br>La creamos sentando las bases de nuevos estándares.</p>
+                
+                <div class="footer-socials-brand">
+                    <a href="#" target="_blank" class="social-icon-brand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                    <a href="#" target="_blank" class="social-icon-brand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="#" target="_blank" class="social-icon-brand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">CONTACTO</h3>
+                <div class="footer-info">
+                    <p class="info-label">Correo electrónico:</p>
+                    <a href="mailto:diego@spectrainstruments.cl" class="info-value">diego@spectrainstruments.cl</a>
+                    <p class="info-label" style="margin-top: 20px;">UBICACIÓN:</p>
+                    <p class="info-value">La Serena, Coquimbo, Chile</p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">COMPAÑÍA</h3>
+                <div class="footer-info">
+                    <p class="info-value">SPECTRA INSTRUMENTS SpA</p>
+                    <p class="info-value">RUT: 20.864.261-8</p>
+                    <p class="info-value">Ingeniería en La Serena</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="bottom-inner">
+                <p>Copyright © 2025-2026 SPECTRA INSTRUMENTS SpA. Todos los derechos reservados.</p>
+                <div class="bottom-links">
+                    <a href="#">Políticas de Privacidad</a>
+                    <a href="#">Términos del Servicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.querySelector('.btn-login').addEventListener('click', async (e) => {
+        e.preventDefault(); // Evita que la página intente recargar
+        
+        const emailInput = document.getElementById('cloud-user').value;
+        const passInput = document.getElementById('cloud-pass').value;
+        const btn = document.querySelector('.btn-login');
+
+        // Verificamos que no envíen campos vacíos
+        if(!emailInput || !passInput) {
+            alert("SISTEMA: Ingresa ID de usuario y clave.");
+            return;
+        }
+
+        // Estado de carga visual
+        const originalText = btn.innerText;
+        btn.innerText = "AUTENTICANDO...";
+        btn.style.opacity = "0.7";
+
+        try {
+            // Enviamos los datos a tu servidor Node.js
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailInput, password: passInput })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                // LOGIN EXITOSO: Luz verde
+                btn.innerText = "ACCESO CONCEDIDO // REDIRIGIENDO";
+                btn.style.background = "#4CAF50"; 
+                btn.style.borderColor = "#4CAF50";
+                btn.style.color = "#fff";
+                
+                // 🔥 NUEVO: Guardamos el correo en la memoria del navegador
+                localStorage.setItem('spectraUser', emailInput);
+                
+                // Redirigir al dashboard real
+                setTimeout(() => {
+                    window.location.href = "dashboard.html"; 
+                }, 1500);
+            } else {
+                // LOGIN FALLIDO: Luz roja
+                btn.innerText = "ERROR DE CREDENCIALES";
+                btn.style.background = "#f44336"; 
+                btn.style.borderColor = "#f44336";
+                btn.style.color = "#fff";
+                
+                // Volver a la normalidad después de 2 segundos
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = "var(--spectra-accent)";
+                    btn.style.borderColor = "var(--spectra-accent)";
+                    btn.style.color = "#000";
+                    btn.style.opacity = "1";
+                }, 2000);
+            }
+        } catch (error) {
+            console.error("Fallo de red:", error);
+            btn.innerText = "ERROR DE SERVIDOR";
+        }
+    });
+</script>
+
+</body>
+</html>

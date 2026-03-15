@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpectraCloud | Exportación</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+    
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-brand">
+            <h2>SPECTRA_</h2>
+            <span class="badge live">LIVE</span>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                Panel General
+            </a>
+             <a href="nodos.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                  <line x1="20" y1="9" x2="23" y2="9"></line>
+                  <line x1="20" y1="14" x2="23" y2="14"></line>
+                  <line x1="1" y1="9" x2="4" y2="9"></line>
+                  <line x1="1" y1="14" x2="4" y2="14"></line>
+                </svg>
+                Mis Nodos
+            </a>
+            <a href="exportar.html" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                Exportar Datos (CSV/ZIP)
+            </a>
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"></path></svg>
+                Alertas Activas
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="user-info">
+                <p class="user-id" id="display-user">Cargando...</p>
+                <p class="user-role">Acceso Autorizado</p>
+            </div>
+            <a href="#" class="nav-item logout" id="btn-logout">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"></path></svg>
+                Cerrar Sesión
+            </a>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+        
+        <header class="dashboard-header">
+            <div>
+                <h1 class="dash-title">MANEJO DE BASES DE DATOS_</h1>
+                <p class="dash-subtitle">Descarga de históricos y depuración de memoria</p>
+            </div>
+        </header>
+
+        <div class="export-grid">
+            
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3>PARÁMETROS DE EXPORTACIÓN</h3>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px; padding-top: 10px;">
+                    <div>
+                        <label style="color: #888; font-size: 11px; font-family: 'JetBrains Mono';">1. SELECCIONAR EQUIPO:</label>
+                        <select id="export-node" class="chart-filter" style="width: 100%; margin-top: 5px; padding: 12px; border-color: var(--spectra-accent); cursor: pointer;">
+                            <option value="ALL">TODAS LAS ESTACIONES (Empaquetar en archivo .ZIP)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="color: #888; font-size: 11px; font-family: 'JetBrains Mono';">2. RANGO DE FECHAS:</label>
+                        <div style="display: flex; gap: 10px; margin-top: 5px;">
+                            <input type="date" id="export-start" class="chart-filter" onclick="if(this.showPicker) this.showPicker();" style="width: 100%; padding: 12px; cursor: pointer;">
+                            <input type="date" id="export-end" class="chart-filter" onclick="if(this.showPicker) this.showPicker();" style="width: 100%; padding: 12px; cursor: pointer;">
+                        </div>
+                        
+                        <div style="background: rgba(229, 169, 61, 0.1); border-left: 3px solid var(--spectra-accent); padding: 10px; margin-top: 15px; border-radius: 0 3px 3px 0;">
+                            <p style="font-size: 11px; color: #ddd; margin: 0; font-family: 'JetBrains Mono', monospace;">
+                                <strong style="color: var(--spectra-accent);">💡 NOTA DEL SISTEMA:</strong><br>
+                                Si dejas ambas fechas en blanco, el sistema descargará automáticamente <span style="color: #fff; text-decoration: underline;">TODO EL HISTÓRICO</span> disponible.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button id="btn-do-export" class="btn-main" style="padding: 15px; margin-top: 10px; width: 100%; cursor: pointer;">
+                        INICIAR DESCARGA →
+                    </button>
+                    <p id="export-status" style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--spectra-accent); text-align: center; display: none;">Procesando...</p>
+                </div>
+            </div>
+
+            <div class="chart-card danger-zone">
+                <div class="chart-header">
+                    <h3>ZONA DE DEPURACIÓN (CRÍTICO)</h3>
+                </div>
+                <p style="font-size: 12px; color: #aaa; line-height: 1.5; margin-bottom: 20px;">
+                    Esta acción purgará de la base de datos central todas las mediciones de la estación seleccionada arriba. No hay copias de seguridad una vez ejecutado el comando.
+                </p>
+                <div style="margin-top: auto;">
+                    <button id="btn-delete" class="btn-danger">BORRAR HISTÓRICO SELECCIONADO</button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+</div>
+
+<script>
+    // 1. SESIÓN
+    let usuarioActual = localStorage.getItem('spectraUser');
+    if (!usuarioActual) {
+        window.location.href = "spectracloud.html";
+    } else {
+        document.getElementById('display-user').innerText = usuarioActual;
+    }
+
+    document.getElementById('btn-logout').addEventListener('click', () => {
+        localStorage.removeItem('spectraUser');
+        window.location.href = "spectracloud.html";
+    });
+
+    let datosCompletos = [];
+    let deleteClicks = 0;
+
+    // 2. OBTENER DATOS MASIVOS
+    async function cargarConfiguracion() {
+        try {
+            console.log("Descargando histórico para:", usuarioActual);
+            const resData = await fetch(`/api/exportar?usuario=${usuarioActual}`);
+            
+            if (!resData.ok) throw new Error("Error en servidor al obtener datos");
+            
+            datosCompletos = await resData.json();
+            console.log(`Base de datos cargada en memoria: ${datosCompletos.length} registros.`);
+
+            const selector = document.getElementById('export-node');
+            const nodosUnicos = [...new Set(datosCompletos.map(d => d.device_id).filter(Boolean))];
+
+            nodosUnicos.forEach(nodo => {
+                const opt = document.createElement('option');
+                opt.value = nodo;
+                opt.innerText = `Solo nodo: ${nodo}`;
+                selector.appendChild(opt);
+            });
+        } catch (error) {
+            console.error("Fallo carga masiva:", error);
+            const statusLabel = document.getElementById('export-status');
+            statusLabel.innerText = "Error de conexión con la Base de Datos.";
+            statusLabel.style.display = 'block';
+            statusLabel.style.color = "#f44336";
+        }
+    }
+
+    // 3. GENERADOR CSV
+    function generarCSV(datosArray) {
+        let csv = "Fecha_Hora,Device_ID,Temperatura_C,Humedad_RH,Presion_hPa,Viento_Vel,Viento_Dir,Bateria_V\n";
+        datosArray.forEach(row => {
+            const fHora = row.created_at ? new Date(row.created_at).toISOString() : '';
+            csv += `${fHora},${row.device_id || ''},${row.temp != null ? row.temp : ''},${row.rh != null ? row.rh : ''},${row.presion != null ? row.presion : ''},${row.viento_vel != null ? row.viento_vel : ''},${row.viento_dir != null ? row.viento_dir : ''},${row.bat_v != null ? row.bat_v : ''}\n`;
+        });
+        return csv;
+    }
+
+    // 🔥 4. LÓGICA DE EXPORTACIÓN (Totalmente nativa, sin fallos)
+    document.getElementById('btn-do-export').addEventListener('click', async () => {
+        if(datosCompletos.length === 0) return alert("SISTEMA: No hay datos registrados en la base de datos para exportar.");
+
+        const statusLabel = document.getElementById('export-status');
+        statusLabel.style.display = 'block';
+        statusLabel.style.color = "var(--spectra-accent)";
+        statusLabel.innerText = "Preparando datos...";
+
+        // Filtrar por fechas
+        let datosFiltrados = datosCompletos;
+        const fStart = document.getElementById('export-start').value;
+        const fEnd = document.getElementById('export-end').value;
+
+        if (fStart && fEnd) {
+            const s = new Date(fStart);
+            const e = new Date(fEnd); e.setHours(23, 59, 59);
+            datosFiltrados = datosCompletos.filter(d => {
+                const f = new Date(d.created_at);
+                return f >= s && f <= e;
+            });
+        }
+
+        const nodoSelect = document.getElementById('export-node').value;
+
+        try {
+            if (nodoSelect === 'ALL') {
+                // EXPORTAR ZIP (VARIAS ESTACIONES)
+                statusLabel.innerText = "Comprimiendo estaciones en archivo ZIP...";
+                const nodosUnicos = [...new Set(datosFiltrados.map(d => d.device_id).filter(Boolean))];
+                
+                if (typeof JSZip === 'undefined') {
+                    throw new Error("La librería para comprimir ZIP no cargó a tiempo. Revisa tu conexión a internet.");
+                }
+
+                const zip = new JSZip();
+                const carpeta = zip.folder("SpectraCloud_Data_" + new Date().toISOString().split('T')[0]);
+
+                nodosUnicos.forEach(nodo => {
+                    const dataDelNodo = datosFiltrados.filter(d => d.device_id === nodo);
+                    carpeta.file(`Estacion_${nodo}.csv`, generarCSV(dataDelNodo));
+                });
+
+                // Descarga Nativa del ZIP
+                zip.generateAsync({type:"blob"}).then(function(content) {
+                    const url = window.URL.createObjectURL(content);
+                    const link = document.createElement("a");
+                    link.href = url;
+                    link.download = `SpectraCloud_Flota_${new Date().getTime()}.zip`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(url); // Limpiar memoria
+                    
+                    statusLabel.innerText = "¡Descarga de Flota Completada!";
+                    setTimeout(() => statusLabel.style.display = 'none', 3000);
+                }).catch(e => {
+                    throw new Error("Fallo al generar el archivo comprimido.");
+                });
+
+            } else {
+                // EXPORTAR CSV (UNA SOLA ESTACIÓN)
+                statusLabel.innerText = "Generando archivo CSV...";
+                const dataDelNodo = datosFiltrados.filter(d => d.device_id === nodoSelect);
+                
+                if(dataDelNodo.length === 0) {
+                    statusLabel.innerText = "No hay datos en el rango de fechas seleccionado.";
+                    return;
+                }
+                
+                // Descarga Nativa del CSV
+                const blob = new Blob([generarCSV(dataDelNodo)], { type: 'text/csv;charset=utf-8;' });
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.href = url;
+                link.download = `SpectraLog_${nodoSelect}_${new Date().getTime()}.csv`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url); // Limpiar memoria
+                
+                statusLabel.innerText = "¡Descarga de Estación Completada!";
+                setTimeout(() => statusLabel.style.display = 'none', 3000);
+            }
+        } catch (err) {
+            console.error("Error de exportación:", err);
+            statusLabel.style.color = "#f44336";
+            statusLabel.innerText = err.message || "Error inesperado al generar el archivo.";
+        }
+    });
+
+    // 5. PROTOCOLO DE BORRADO
+    const btnDelete = document.getElementById('btn-delete');
+    
+    btnDelete.addEventListener('click', async () => {
+        deleteClicks++;
+
+        if (deleteClicks === 1) {
+            btnDelete.innerText = "⚠️ ¿CONFIRMAR BORRADO? (1/3)";
+            btnDelete.style.backgroundColor = "rgba(244, 67, 54, 0.2)";
+        } 
+        else if (deleteClicks === 2) {
+            btnDelete.innerText = "🛑 IRREVERSIBLE. CLIC PARA BORRAR (2/3)";
+            btnDelete.style.backgroundColor = "rgba(244, 67, 54, 0.5)";
+            btnDelete.style.color = "#fff";
+        } 
+        else if (deleteClicks === 3) {
+            btnDelete.innerText = "PURGANDO...";
+            btnDelete.style.backgroundColor = "#f44336";
+            
+            const nodoABorrar = document.getElementById('export-node').value;
+
+            try {
+                const respuesta = await fetch(`/api/mediciones?usuario=${usuarioActual}&device=${nodoABorrar}`, {
+                    method: 'DELETE'
+                });
+
+                if (respuesta.ok) {
+                    btnDelete.innerText = "✔️ DATOS ELIMINADOS";
+                    btnDelete.style.backgroundColor = "#4CAF50";
+                    btnDelete.style.borderColor = "#4CAF50";
+                    setTimeout(() => window.location.reload(), 2000);
+                } else {
+                    const r = await respuesta.json();
+                    alert("Error servidor: " + r.error);
+                    reiniciarBotonBorrado();
+                }
+            } catch (err) {
+                alert("Fallo de red al borrar.");
+                reiniciarBotonBorrado();
+            }
+        }
+    });
+
+    function reiniciarBotonBorrado() {
+        deleteClicks = 0;
+        btnDelete.innerText = "BORRAR HISTÓRICO SELECCIONADO";
+        btnDelete.style.backgroundColor = "transparent";
+        btnDelete.style.color = "#f44336";
+        btnDelete.style.borderColor = "#f44336";
+    }
+
+    document.addEventListener('click', (e) => {
+        if (e.target.id !== 'btn-delete' && deleteClicks > 0 && deleteClicks < 3) {
+            reiniciarBotonBorrado();
+        }
+    });
+
+    window.onload = cargarConfiguracion;
+</script>
+
+</body>
+</html>
