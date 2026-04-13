@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200">
-    <title>SpectraLog BlackBox LR | Hardware Validado | Spectra Instruments</title>
+    <title>SpectraLog BlackBox LR | Spectra Instruments</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
 </head>
@@ -21,6 +21,7 @@
                 <ul class="list-menu--inline">
                     <li class="has-mega-menu">
                         <a href="#" class="header__menu-item"><span>PRODUCTOS ↗</span></a>
+                        
                         <div class="mega-menu">
                             <div class="mega-menu-inner">
                                 <div class="mega-col">
@@ -32,9 +33,31 @@
                                         <span class="mega-link">Ver detalles →</span>
                                     </a>
                                 </div>
+                                <div class="mega-col">
+                                    <span class="badge soon">PRONTO</span>
+                                    <div class="mega-img-placeholder">// HARDWARE_KIT</div>
+                                    <h3>HARDWARE</h3>
+                                    <p>Placas base y kits de desarrollo OEM para integración rápida.</p>
+                                    <a href="#" class="mega-link">Más información →</a>
                                 </div>
+                                <div class="mega-col">
+                                    <span class="badge catalog">CATÁLOGO</span>
+                                    <div class="mega-img-placeholder">// SENS_STACK</div>
+                                    <h3>SENSORES</h3>
+                                    <p>Sensores industriales, meteorología e hidroponía de precisión.</p>
+                                    <a href="#" class="mega-link">Explorar →</a>
+                                </div>
+                                <div class="mega-col">
+                                    <span class="badge custom">CUSTOM</span>
+                                    <div class="mega-img-placeholder">// R&D_LABS</div>
+                                    <h3>CONSULTORÍA</h3>
+                                    <p>Diseño de PCB y hardware personalizado para minería y ciencia.</p>
+                                    <a href="#" class="mega-link">Hablemos →</a>
+                                </div>
+                            </div>
                         </div>
                     </li>
+                    
                     <li><a href="spectracloud.html" class="header__menu-item"><span>SpectraCloud</span></a></li>
                     <li><a href="soporte.html" class="header__menu-item"><span>Soporte</span></a></li>
                     <li><a href="contacto.html" class="header__menu-item"><span>Contacto</span></a></li>
@@ -46,43 +69,61 @@
 
 <main style="padding-top: 80px;">
 
-    <section class="p-hero-section">
+    <section class="prod-hero-section">
         <div class="grid-container">
-            <div class="p-hero-grid">
+            <div class="prod-hero-grid">
                 
-                <div class="p-info-col">
-                    <div class="p-tech-label">[ HW_CATALOG // DATALOGGER // 2026.04 ]</div>
+                <div class="prod-info-col">
+                    <div class="prod-breadcrumbs">
+                        <a href="#">CATÁLOGO</a> <span class="separator">/</span> 
+                        <a href="#">DATALOGGERS</a> <span class="separator">/</span> 
+                        <span class="current">SPECTRALOG BLACKBOX</span>
+                    </div>
                     
-                    <h1 class="p-main-title">SPECTRALOG<br>BLACKBOX LR</h1>
+                    <h1 class="prod-title">SPECTRALOG<br>BLACKBOX LR</h1>
+                    <p class="prod-subtitle">Nodo de telemetría meteorológica de grado industrial. Arquitectura basada en ESP32-S3 con redundancia Flash/SD, enlaces LoRaWAN de largo alcance e interfaz RS485 Modbus nativa.</p>
                     
-                    <p class="p-main-subtitle">Nodo de telemetría meteorológica de grado científico para entornos hostiles. Integra un núcleo ESP32-S3 de ultra bajo consumo con un módulo RF LoRa SX1262 de largo alcance (FEM integrado) y redundancia de datos Flash/SD automatizada.</p>
-                    
-                    <div class="p-specs-bento-inline">
-                        <div class="inline-spec">MODBUS/RS485</div>
-                        <div class="inline-spec">LoRaWAN SF7-12</div>
-                        <div class="inline-spec">Li-Po + SOLAR</div>
-                        <div class="inline-spec">IP67 NEMA 4X</div>
+                    <div class="prod-tags">
+                        <span class="tag">LoRa SX1262</span>
+                        <span class="tag">RS485 / Modbus</span>
+                        <span class="tag">Ultra-Low Power</span>
+                        <span class="tag">IP67</span>
                     </div>
 
-                    <div class="p-offer-box">
-                        <div class="price-block">
-                            <span class="price-label">PVP NETO (UNIDAD)</span>
-                            <span class="price-val">$850.000 <span class="currency">CLP</span></span>
-                            <span class="tax-desc">+ IVA / Factura B2B industrial / Stock limitado</span>
+                    <div class="prod-quick-specs">
+                        <div class="q-spec">
+                            <span class="q-val">15+ km</span>
+                            <span class="q-lbl">ALCANCE (LOS)</span>
+                        </div>
+                        <div class="q-spec">
+                            <span class="q-val">< 10 µA</span>
+                            <span class="q-lbl">DEEP SLEEP</span>
+                        </div>
+                        <div class="q-spec">
+                            <span class="q-val">Dual</span>
+                            <span class="q-lbl">MEMORIA (SD/FLASH)</span>
+                        </div>
+                    </div>
+
+                    <div class="prod-action-box">
+                        <div class="prod-price-block">
+                            <span class="price-label">PRECIO BASE (Desde)</span>
+                            <span class="price-value">$850.000 <span class="price-currency">CLP</span></span>
+                            <span class="price-tax">+ IVA / Factura B2B disponible</span>
                         </div>
                         
-                        <a href="mailto:diego@spectrainstruments.cl?subject=Cotización%20SpectraLog%20BlackBox%20LR&body=Hola%20Diego,%0A%0AMe%20gustaría%20cotizar%20nodos%20SpectraLog%20BlackBox%20LR%20para%20un%20proyecto.%0A%0ACantidad%20estimada:%0ADetalles%20del%20proyecto/faena:%0A%0A¡Quedo%20atento!" class="btn-quote-main">
+                        <a href="mailto:diego@spectrainstruments.cl?subject=Cotización%20SpectraLog%20BlackBox%20LR&body=Hola%20Diego,%0A%0AMe%20gustaría%20cotizar%20nodos%20SpectraLog%20BlackBox%20LR%20para%20un%20proyecto.%0A%0ACantidad%20estimada:%0ADetalles%20del%20proyecto/faena:%0A%0A¡Quedo%20atento!" class="btn-quote">
                             SOLICITAR COTIZACIÓN →
                         </a>
                     </div>
                 </div>
 
-                <div class="p-image-col">
-                    <div class="p-main-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?q=80&w=800" alt="SpectraLog BlackBox Industrial" class="main-p-img">
-                        <div class="image-tech-data">
-                            <span>SPECTRA_PROTO_V2B_ULP</span>
-                            <span>915 MHz BAND</span>
+                <div class="prod-image-col">
+                    <div class="prod-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?q=80&w=800" alt="SpectraLog BlackBox LR" class="prod-main-img">
+                        <div class="prod-image-overlay">
+                            <span class="overlay-text">// HW_REV_2026.04</span>
+                            <span class="overlay-text" style="color: #666; margin-left: 15px;">PCB DESIGNED IN ALTIUM</span>
                         </div>
                     </div>
                 </div>
@@ -91,100 +132,122 @@
         </div>
     </section>
 
-    <section class="p-features-section">
+    <section class="prod-validation-section">
         <div class="grid-container">
-            <div class="section-technical-header">
-                <h2>ARQUITECTURA DEL SISTEMA_</h2>
-            </div>
-            
-            <div class="features-grid">
-                <div class="f-card f-wide">
-                    <svg class="f-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    <h3>NÚCLEO ESP32-S3 Y DUAL-RS485</h3>
-                    <p>Procesador Dual-Core de última generación ejecutando SpectraOS Async. Integra interfaz RS485 nativa Modbus RTU optimizada para instrumentación climática 6-in-1 y UART NMEA para sensores ultrasónicos de bajo consumo (ej. Calypso ULP).</p>
+            <div class="validation-banner">
+                <div class="val-text">
+                    <span class="val-label">// FIELD_TESTED</span>
+                    <h3>VALIDADO EN CONDICIONES EXTREMAS</h3>
+                    <p>Desplegado activamente en proyectos de investigación científica FONDECYT (Sector Los Tomes). El hardware soporta exposición solar directa, humedad extrema y transitorios eléctricos sin pérdida de paquetes.</p>
                 </div>
-                
-                <div class="f-card">
-                    <svg class="f-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    <h3>LORA SX1262 CON FEM</h3>
-                    <p>Módulo RF de alta eficiencia con amplificador de potencia integrado (FEM). Permite enlaces de hasta 15+ km (LOS) y reintentos automatizados para garantizar la integridad del payload hacia Supabase.</p>
-                </div>
-
-                <div class="f-card">
-                    <svg class="f-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/></svg>
-                    <h3> GESTIÓN ENERGÉTICA</h3>
-                    <p>Electrónica optimizada paraDeep Sleep (< 10 µA). Cargador solar MPPT integrado para baterías Li-Po. Control aislado de potencia (VEXT) para periféricos RS485 y UART.</p>
+                <div class="val-stats">
+                    <div class="stat">
+                        <span class="stat-num">99.9%</span>
+                        <span class="stat-desc">UPTIME REGISTRADO</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-desc">INTEGRIDAD DE DATOS</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="p-technical-section">
+    <section class="prod-features-section">
         <div class="grid-container">
-            <div class="tech-layout-grid">
+            <div class="section-header">
+                <h2>ARQUITECTURA DEL SISTEMA_</h2>
+            </div>
+            
+            <div class="features-bento-grid">
+                <div class="feature-card f-large">
+                    <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                    <h3>MODBUS RTU & UART</h3>
+                    <p>Cabezal intercambiable por software (Spectra OS). Soporta instrumentación NBL 6-in-1 vía RS485 o transductores ultrasónicos Calypso ULP vía UART NMEA. Todo integrado en un solo PCB de alta densidad.</p>
+                </div>
                 
-                <div class="tech-table-col">
-                    <div class="section-technical-header" style="margin-bottom: 30px;">
-                        <h2>ESPECIFICACIONES DETALLADAS_</h2>
+                <div class="feature-card">
+                    <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                    <h3>LORA SX1262 CON FEM</h3>
+                    <p>Módulo RF de última generación con amplificador integrado (Front-End Module). Transmisiones seguras con ACKs y reintentos automatizados para evitar colisiones en redes saturadas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/></svg></div>
+                    <h3>POWER MANAGEMENT</h3>
+                    <p>Alimentación híbrida Li-Po 3.7V + carga solar. Operación de Deep Sleep con consumo de microamperios. Control de potencia aislado para periféricos (VEXT) y lectura de tensión de batería.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prod-specs-section">
+        <div class="grid-container">
+            <div class="specs-layout-grid">
+                
+                <div class="specs-table-container">
+                    <div class="section-header" style="margin-bottom: 30px;">
+                        <h2>ESPECIFICACIONES TÉCNICAS_</h2>
                     </div>
-                    <div class="technical-table-wrapper">
-                        <table class="technical-table">
+                    <div class="specs-table-wrapper">
+                        <table class="specs-table">
                             <tbody>
                                 <tr>
-                                    <td>PROCESADOR</td>
-                                    <td>Espressif ESP32-S3 Dual Core 240MHz. Arquitectura Async Non-Blocking.</td>
+                                    <td class="spec-cat">PROCESAMIENTO</td>
+                                    <td class="spec-val">Espressif ESP32-S3 Dual Core 240MHz. Arquitectura Async Polling OS (No bloqueante).</td>
                                 </tr>
                                 <tr>
-                                    <td>DATALOGGING</td>
-                                    <td>LittleFS (Flash Interna) + Respaldo CSV automatizado en Tarjeta SD.</td>
+                                    <td class="spec-cat">MEMORIA & DATALOGGING</td>
+                                    <td class="spec-val">Caché rápida en memoria Flash interna (LittleFS). Respaldo masivo automatizado en Micro SD (formato CSV).</td>
                                 </tr>
                                 <tr>
-                                    <td>INTERFACES RS485</td>
-                                    <td>1x Modbus RTU (Half Duplex). Protección ESD y transitorios industriales.</td>
+                                    <td class="spec-cat">INTERFACES FÍSICAS</td>
+                                    <td class="spec-val">1x RS485 (Modbus RTU), 1x UART (38400 baud), 1x Entrada de interrupción digital (Pluviómetro).</td>
                                 </tr>
                                 <tr>
-                                    <td>TELEMETRÍA LORA</td>
-                                    <td>915 MHz BAND (SF7-SF12). LoRaWAN compatible. FEM integrado (+22dBm).</td>
+                                    <td class="spec-cat">TELEMETRÍA LORA</td>
+                                    <td class="spec-val">915 MHz (Banda ISM Chile/América). Spreading Factor configurable (SF7-SF12).</td>
                                 </tr>
                                 <tr>
-                                    <td>WAKE-UP</td>
-                                    <td>Activación magnética (Hall Sensor) o interrupción física (Pluviómetro).</td>
+                                    <td class="spec-cat">CONFIGURACIÓN LOCAL</td>
+                                    <td class="spec-val">Activación externa mediante imán (Hall Sensor). Levanta red WiFi AP temporal para diagnóstico.</td>
                                 </tr>
                                 <tr>
-                                    <td>ENCAPSULADO</td>
-                                    <td>Caja industrial IP67 / NEMA 4X. Prensaestopas metálicos M12.</td>
+                                    <td class="spec-cat">ENTORNO FÍSICO</td>
+                                    <td class="spec-val">Caja estanca IP67 con prensaestopas metálicos. Rango de temperatura operativa del PCB: -20°C a +70°C.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div class="box-contents-col">
-                    <h3 class="box-list-title">¿QUÉ INCLUYE LA CAJA?</h3>
-                    <ul class="box-list technical-font">
+                <div class="whats-in-box-container">
+                    <h3 class="box-title">¿QUÉ INCLUYE LA CAJA?</h3>
+                    <ul class="box-list">
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>Nodo SpectraLog BlackBox LR (Armado y testeado QC Pass)</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>1x Nodo SpectraLog BlackBox LR (Armado y testeado)</span>
                         </li>
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>Batería Li-Po 3.7V / Alta Capacidad (Instalada Internamente)</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>1x Batería Li-Po 3.7V de Alta Capacidad</span>
                         </li>
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>Antena LoRa 915MHz de Alta Ganancia (Externa)</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>1x Antena LoRa 915MHz de Alta Ganancia</span>
                         </li>
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
                             <span>2x Prensaestopas Metálicos M12 (Instalados)</span>
                         </li>
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>Imán Neodimio (activación magnética)</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>1x Imán Neodimio para Wake-up Magnético</span>
                         </li>
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>Datasheet y Guía de Puesta en Marcha (Digital)</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>Certificado de Calibración QC Pass</span>
                         </li>
                     </ul>
                 </div>
@@ -193,54 +256,49 @@
         </div>
     </section>
 
-    <div class="resource-card">
-                    <div class="r-header">
-                        <svg class="r-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        <div class="r-title-block">
+    <section class="prod-docs-section">
+        <div class="grid-container">
+            <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+                <p style="font-family: 'JetBrains Mono'; color: #666; font-size: 12px; margin-bottom: 10px;">// RESOURCE_CENTER</p>
+                <h2>DOCUMENTACIÓN TÉCNICA_</h2>
+            </div>
+
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <svg class="doc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        <div class="doc-info">
                             <h4>Product Brief</h4>
                             <span>PDF • 1.2 MB</span>
                         </div>
                     </div>
-                    <p class="r-desc">Resumen ejecutivo del hardware, aplicaciones B2B y esquema general de integración.</p>
-                    <a href="#" class="btn-download-technical">DESCARGAR ↓</a>
+                    <p class="doc-desc">Resumen ejecutivo del hardware, casos de uso ideales y esquema general de integración en redes LoRaWAN.</p>
+                    <a href="#" class="btn-download">DESCARGAR ↓</a>
                 </div>
 
-                <div class="resource-card">
-                    <div class="r-header">
-                        <svg class="r-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8M10 9H9H8"/></svg>
-                        <div class="r-title-block">
-                            <h4>Datasheet Técnico</h4>
-                            <span>PDF • 2.8 MB</span>
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <svg class="doc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        <div class="doc-info">
+                            <h4>Puesta en Marcha</h4>
+                            <span>PDF • 3.5 MB</span>
                         </div>
                     </div>
-                    <p class="r-desc">Especificaciones eléctricas completas, pinout Modbus RS485 y registros UART.</p>
-                    <a href="#" class="btn-download-technical">DESCARGAR ↓</a>
+                    <p class="doc-desc">Manual técnico de instalación en terreno, conexión RS485, encendido magnético y configuración vía WiFi AP.</p>
+                    <a href="#" class="btn-download">DESCARGAR ↓</a>
                 </div>
 
-                <div class="resource-card">
-                    <div class="r-header">
-                        <svg class="r-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                        <div class="r-title-block">
-                            <h4>Guía Puesta en Marcha</h4>
-                            <span>PDF • 3.1 MB</span>
-                        </div>
-                    </div>
-                    <p class="r-desc">Manual ilustrado para instalación en terreno, cableado de sensores y conexión magnética.</p>
-                    <a href="#" class="btn-download-technical">DESCARGAR ↓</a>
-                </div>
-
-                <div class="resource-card">
-                    <div class="r-header">
-                        <svg class="r-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/></svg>
-                        <div class="r-title-block">
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <svg class="doc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                        <div class="doc-info">
                             <h4>Modelo CAD 3D</h4>
-                            <span>STEP • 8.5 MB</span>
+                            <span>STEP • 8.1 MB</span>
                         </div>
                     </div>
-                    <p class="r-desc">Modelo volumétrico de la caja IP67 y prensaestopas para integración en planos mecánicos.</p>
-                    <a href="mailto:diego@spectrainstruments.cl?subject=Solicitud%20CAD%20STEP%20SpectraLog%20BlackBox" class="btn-download-technical">SOLICITAR ACCESO ↓</a>
+                    <p class="doc-desc">Modelo volumétrico del equipo (Caja IP67 + Antenas + Prensaestopas) para integración en planos de ingeniería mecánica.</p>
+                    <a href="#" class="btn-download">SOLICITAR ACCESO 🔒</a>
                 </div>
-
             </div>
         </div>
     </section>
