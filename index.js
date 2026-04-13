@@ -33,6 +33,8 @@ app.post('/api/data', async (req, res) => {
         .from('mediciones') 
         .insert([
             { 
+                // Inyección de la fecha exacta del DataLogger
+                created_at: data.created_at || new Date().toISOString(),
                 device_id: data.device_id || data.id, 
                 viento_dir: data.viento_dir, 
                 viento_vel: data.viento_vel,
@@ -131,7 +133,7 @@ app.get('/api/nodos', async (req, res) => {
         return res.status(400).json({ status: "error", message: "Falta identificación de usuario." });
     }
 
-    // Leemos la tabla 'estaciones' (la de tu captura)
+    // Leemos la tabla 'estaciones'
     const { data, error } = await supabase
         .from('estaciones')
         .select('*')
