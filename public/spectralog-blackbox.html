@@ -25,11 +25,13 @@
                         <div class="mega-menu">
                             <div class="mega-menu-inner">
                                 <div class="mega-col">
-                                    <span class="badge new">NUEVO</span>
-                                    <div class="mega-img-placeholder">// SPECTRALOG_V1</div>
-                                    <h3>SPECTRALOG</h3>
-                                    <p>Hardware para clima y bajo consumo. LoRa + RS485 + Solar.</p>
-                                    <a href="spectralog-blackbox.html" class="mega-link">Ver detalles →</a>
+                                    <a href="spectralog-blackbox.html" style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
+                                        <span class="badge new">NUEVO</span>
+                                        <div class="mega-img-placeholder">// SPECTRALOG_V1</div>
+                                        <h3>SPECTRALOG</h3>
+                                        <p>Hardware para clima y bajo consumo. LoRa + RS485 + Solar.</p>
+                                        <span class="mega-link">Ver detalles →</span>
+                                    </a>
                                 </div>
                                 <div class="mega-col">
                                     <span class="badge soon">PRONTO</span>
@@ -144,19 +146,19 @@
                 <div class="feature-card f-large">
                     <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
                     <h3>MODBUS RTU & UART</h3>
-                    <p>Cabezal intercambiable por software (Spectra OS). Soporta instrumentación NBL 6-in-1 vía RS485 o transductores ultrasónicos Calypso ULP vía UART NMEA. Todo integrado en un solo PCB de alta densidad.</p>
+                    <p>Cabezal intercambiable por software (Spectra OS). Soporta instrumentación NBL 6-in-1 vía RS485 o transductores ultrasónicos Calypso ULP vía UART NMEA. Todo integrado en un solo PCB de alta densidad diseñado en Altium.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
                     <h3>LORA SX1262 CON FEM</h3>
-                    <p>Módulo RF de última generación con amplificador integrado (Front-End Module). Transmisiones seguras con ACKs y reintentos automatizados para evitar colisiones.</p>
+                    <p>Módulo RF de última generación con amplificador integrado (Front-End Module). Transmisiones seguras con ACKs y reintentos automatizados para evitar colisiones en redes saturadas.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/></svg></div>
                     <h3>POWER MANAGEMENT</h3>
-                    <p>Alimentación híbrida Li-Po 3.7V + carga solar. Operación de Deep Sleep con consumo de microamperios. Control de potencia aislado para periféricos (VEXT) y tarjetas SD.</p>
+                    <p>Alimentación híbrida Li-Po 3.7V + carga solar. Operación de Deep Sleep con consumo de microamperios. Control de potencia aislado para periféricos (VEXT) y lectura de tensión de batería.</p>
                 </div>
             </div>
         </div>
@@ -164,39 +166,121 @@
 
     <section class="prod-specs-section">
         <div class="grid-container">
-            <div class="section-header">
-                <h2>ESPECIFICACIONES TÉCNICAS_</h2>
+            <div class="specs-layout-grid">
+                
+                <div class="specs-table-container">
+                    <div class="section-header" style="margin-bottom: 30px;">
+                        <h2>ESPECIFICACIONES TÉCNICAS_</h2>
+                    </div>
+                    <div class="specs-table-wrapper">
+                        <table class="specs-table">
+                            <tbody>
+                                <tr>
+                                    <td class="spec-cat">PROCESAMIENTO</td>
+                                    <td class="spec-val">Espressif ESP32-S3 Dual Core 240MHz. Arquitectura Async Polling OS (No bloqueante).</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-cat">MEMORIA & DATALOGGING</td>
+                                    <td class="spec-val">Caché rápida en memoria Flash interna (LittleFS). Respaldo masivo automatizado en Micro SD (formato CSV).</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-cat">INTERFACES FÍSICAS</td>
+                                    <td class="spec-val">1x RS485 (Modbus RTU), 1x UART (38400 baud), 1x Entrada de interrupción digital (Pluviómetro).</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-cat">TELEMETRÍA LORA</td>
+                                    <td class="spec-val">915 MHz (Banda ISM Chile/América). Spreading Factor configurable (SF7-SF12).</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-cat">CONFIGURACIÓN LOCAL</td>
+                                    <td class="spec-val">Activación externa mediante imán (Hall Sensor). Levanta red WiFi AP temporal para diagnóstico.</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-cat">ENTORNO FÍSICO</td>
+                                    <td class="spec-val">Caja estanca IP67 con prensaestopas metálicos. Rango de temperatura operativa del PCB: -20°C a +70°C.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="whats-in-box-container">
+                    <h3 class="box-title">¿QUÉ INCLUYE LA CAJA?</h3>
+                    <ul class="box-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>1x Nodo SpectraLog BlackBox LR (Armado y testeado)</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>1x Batería Li-Po 3.7V de Alta Capacidad</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>1x Antena LoRa 915MHz de Alta Ganancia</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>2x Prensaestopas Metálicos M12 (Instalados)</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>1x Imán Neodimio para Wake-up Magnético</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--spectra-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            <span>Certificado de Calibración QC Pass</span>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            
-            <div class="specs-table-wrapper">
-                <table class="specs-table">
-                    <tbody>
-                        <tr>
-                            <td class="spec-cat">PROCESAMIENTO</td>
-                            <td class="spec-val">Espressif ESP32-S3 Dual Core 240MHz. Arquitectura Async Polling OS (No bloqueante).</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-cat">MEMORIA & DATALOGGING</td>
-                            <td class="spec-val">Caché rápida en memoria Flash interna (LittleFS). Respaldo masivo automatizado en Micro SD (formato CSV).</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-cat">INTERFACES FÍSICAS</td>
-                            <td class="spec-val">1x RS485 (Modbus RTU), 1x UART (38400 baud), 1x Entrada de interrupción digital (Pluviómetro, debounce por HW/SW).</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-cat">TELEMETRÍA LORA</td>
-                            <td class="spec-val">915 MHz (Banda ISM Chile/América). Spreading Factor configurable (SF7-SF12). Encriptación opcional de payload.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-cat">CONFIGURACIÓN LOCAL</td>
-                            <td class="spec-val">Activación mediante imán o pulsador. Levanta red WiFi AP temporal (SpectraLog OS) para configuración mediante smartphone.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-cat">ENTORNO FÍSICO</td>
-                            <td class="spec-val">Caja estanca IP67 con prensaestopas metálicos. Rango de temperatura operativa del PCB: -20°C a +70°C.</td>
-                        </tr>
-                    </tbody>
-                </table>
+        </div>
+    </section>
+
+    <section class="prod-docs-section">
+        <div class="grid-container">
+            <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+                <p style="font-family: 'JetBrains Mono'; color: #666; font-size: 12px; margin-bottom: 10px;">// RESOURCE_CENTER</p>
+                <h2>DOCUMENTACIÓN TÉCNICA_</h2>
+            </div>
+
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <svg class="doc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        <div class="doc-info">
+                            <h4>Product Brief</h4>
+                            <span>PDF • 1.2 MB</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc">Resumen ejecutivo del hardware, casos de uso ideales y esquema general de integración en redes LoRaWAN.</p>
+                    <a href="#" class="btn-download">DESCARGAR ↓</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <svg class="doc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        <div class="doc-info">
+                            <h4>Puesta en Marcha</h4>
+                            <span>PDF • 3.5 MB</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc">Manual técnico de instalación en terreno, conexión RS485, encendido magnético y configuración vía WiFi AP.</p>
+                    <a href="#" class="btn-download">DESCARGAR ↓</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <svg class="doc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                        <div class="doc-info">
+                            <h4>Modelo CAD 3D</h4>
+                            <span>STEP • 8.1 MB</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc">Modelo volumétrico del equipo (Caja IP67 + Antenas + Prensaestopas) para integración en planos de ingeniería mecánica.</p>
+                    <a href="#" class="btn-download">SOLICITAR ACCESO 🔒</a>
+                </div>
             </div>
         </div>
     </section>
