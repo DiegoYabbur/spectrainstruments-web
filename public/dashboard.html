@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Estilos añadidos para las secciones de los KPIs */
+        .kpi-section-title {
+            grid-column: 1 / -1;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--spectra-accent);
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body class="dashboard-body">
 
@@ -74,6 +88,8 @@
         </header>
 
         <div class="kpi-grid">
+            <div class="kpi-section-title">// TELEMETRÍA METEOROLÓGICA EXTERNA</div>
+            
             <div class="kpi-card">
                 <span class="kpi-label">TEMPERATURA AMBIENTE</span>
                 <div class="kpi-value"><span id="val-temp">--</span> <span class="unit">°C</span></div>
@@ -87,19 +103,34 @@
                 <div class="kpi-value"><span id="val-viento">--</span> <span class="unit">km/h</span></div>
             </div>
             <div class="kpi-card">
-                <span class="kpi-label">TENSIÓN BATERÍA</span>
-                <div class="kpi-value"><span id="val-bat">--</span> <span class="unit">V</span></div>
+                <span class="kpi-label">PRESIÓN BAROMÉTRICA</span>
+                <div class="kpi-value"><span id="val-presion">--</span> <span class="unit">hPa</span></div>
             </div>
             <div class="kpi-card">
                 <span class="kpi-label">LLUVIA (PULSOS)</span>
                 <div class="kpi-value"><span id="val-lluvia">--</span> <span class="unit">T</span></div>
             </div>
+
+            <div class="kpi-section-title" style="margin-top: 10px;">// ESTADO DEL EQUIPO (SPECTRALOG)</div>
+            
+            <div class="kpi-card" style="border-color: #444;">
+                <span class="kpi-label" style="color: #bbb;">TEMPERATURA INTERNA</span>
+                <div class="kpi-value"><span id="val-int-temp">--</span> <span class="unit">°C</span></div>
+            </div>
+            <div class="kpi-card" style="border-color: #444;">
+                <span class="kpi-label" style="color: #bbb;">HUMEDAD INTERNA</span>
+                <div class="kpi-value"><span id="val-int-hum">--</span> <span class="unit">%</span></div>
+            </div>
+            <div class="kpi-card" style="border-color: #444;">
+                <span class="kpi-label" style="color: #bbb;">TENSIÓN BATERÍA</span>
+                <div class="kpi-value"><span id="val-bat">--</span> <span class="unit">V</span></div>
+            </div>
         </div>
 
-        <div class="charts-grid">
+        <div class="charts-grid" style="margin-top: 25px;">
             <div class="chart-card main-chart">
                 <div class="chart-header" style="flex-wrap: wrap; gap: 15px;">
-                    <h3>SERIE TEMPORAL: TELEMETRÍA</h3>
+                    <h3>SERIE TEMPORAL</h3>
                     
                     <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
                         <select id="time-selector" class="chart-filter">
@@ -118,15 +149,15 @@
                         </div>
 
                         <select id="var-selector" class="chart-filter" style="border-color: var(--spectra-accent);">
-                            <option value="temp">Temperatura (°C)</option>
-                            <option value="rh">Humedad (%)</option>
+                            <option value="temp">Temperatura Externa (°C)</option>
+                            <option value="rh">Humedad Externa (%)</option>
                             <option value="viento_vel">Velocidad Viento (km/h)</option>
                             <option value="viento_dir">Dirección Viento (°)</option>
                             <option value="presion">Presión (hPa)</option>
-                            <option value="bat_v">Batería (V)</option>
                             <option value="lluvia">Lluvia Acumulada (Pulsos)</option>
                             <option value="int_temp">Temp. Interna Equipo (°C)</option>
                             <option value="int_rh">Hum. Interna Equipo (%)</option>
+                            <option value="bat_v">Batería (V)</option>
                         </select>
                     </div>
                 </div>
@@ -242,7 +273,7 @@
         return datos.filter(d => new Date(d.created_at) >= fechaInicio);
     }
 
-    // 5. RENDERIZAR INTERFAZ (Seguro contra nulos)
+    // 5. RENDERIZAR INTERFAZ
     function renderizarVista() {
         if (telemetriaGlobal.length === 0) return;
 
@@ -258,11 +289,17 @@
         // --- KPIs ---
         const ultimoRegistro = datosDelNodo[0] || {}; 
         
+        // Entorno Externo
         if(document.getElementById('val-temp')) document.getElementById('val-temp').innerText = (ultimoRegistro.temp != null) ? ultimoRegistro.temp : '--';
         if(document.getElementById('val-hum')) document.getElementById('val-hum').innerText = (ultimoRegistro.rh != null) ? ultimoRegistro.rh : '--';
         if(document.getElementById('val-viento')) document.getElementById('val-viento').innerText = (ultimoRegistro.viento_vel != null) ? ultimoRegistro.viento_vel : '--';
-        if(document.getElementById('val-bat')) document.getElementById('val-bat').innerText = (ultimoRegistro.bat_v != null) ? ultimoRegistro.bat_v : '--';
+        if(document.getElementById('val-presion')) document.getElementById('val-presion').innerText = (ultimoRegistro.presion != null) ? ultimoRegistro.presion : '--';
         if(document.getElementById('val-lluvia')) document.getElementById('val-lluvia').innerText = (ultimoRegistro.lluvia != null) ? ultimoRegistro.lluvia : '--';
+        
+        // Estado del Datalogger
+        if(document.getElementById('val-int-temp')) document.getElementById('val-int-temp').innerText = (ultimoRegistro.int_temp != null) ? ultimoRegistro.int_temp : '--';
+        if(document.getElementById('val-int-hum')) document.getElementById('val-int-hum').innerText = (ultimoRegistro.int_rh != null) ? ultimoRegistro.int_rh : '--';
+        if(document.getElementById('val-bat')) document.getElementById('val-bat').innerText = (ultimoRegistro.bat_v != null) ? ultimoRegistro.bat_v : '--';
         
         if(document.getElementById('val-time')){
             const fechaUltima = new Date(ultimoRegistro.created_at);
@@ -283,7 +320,7 @@
         spectraChart.data.datasets[0].data = datosOrdenados.map(d => d[variableElegida]);
         
         const nombresVariable = {
-            'temp': 'Temperatura (°C)', 'rh': 'Humedad Relativa (%)',
+            'temp': 'Temperatura Externa (°C)', 'rh': 'Humedad Externa (%)',
             'viento_vel': 'Velocidad Viento (km/h)', 'viento_dir': 'Dirección Viento (°)',
             'presion': 'Presión Barométrica (hPa)', 'bat_v': 'Tensión Batería (V)',
             'lluvia': 'Lluvia Acumulada (Pulsos)', 'int_temp': 'Temp. Interna Equipo (°C)', 
@@ -303,7 +340,7 @@
                 const li = document.createElement('li');
                 li.innerHTML = `
                     <span class="log-time">${d.toLocaleDateString()} ${d.toLocaleTimeString()}</span> 
-                    <span class="log-msg">T: ${registro.temp != null ? registro.temp : '-'}°C, Lluvia: ${registro.lluvia != null ? registro.lluvia : '-'}, Vbat: ${registro.bat_v != null ? registro.bat_v : '-'}V</span>
+                    <span class="log-msg">T.Ext: ${registro.temp != null ? registro.temp : '-'}°C | T.Caja: ${registro.int_temp != null ? registro.int_temp : '-'}°C | Vbat: ${registro.bat_v != null ? registro.bat_v : '-'}V</span>
                 `;
                 logList.appendChild(li);
             });
