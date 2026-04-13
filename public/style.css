@@ -1947,3 +1947,135 @@ a { color: var(--spectra-title); text-decoration: none; }
 }
 
 .specs-table td { padding: 20px 25px !important; }
+
+/* ==========================================================
+   ESTILOS CATÁLOGO SPECTRA 2026
+========================================================== */
+
+.cat-header-section {
+    padding: 100px 0 60px 0;
+    border-bottom: 1px solid #222;
+}
+
+.cat-intro h1 {
+    font-size: 5rem;
+    line-height: 0.9;
+    margin: 20px 0;
+}
+
+.cat-rev {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--spectra-accent);
+    letter-spacing: 2px;
+}
+
+.cat-subtitle {
+    font-size: 18px;
+    color: #888;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+/* Grilla del Catálogo */
+.cat-section { padding: 80px 0; }
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjeta de Producto */
+.cat-card {
+    background: var(--spectra-card);
+    border: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.cat-card:hover {
+    border-color: var(--spectra-accent);
+    transform: translateY(-5px);
+}
+
+.cat-img-box {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+.cat-img-box img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) brightness(0.7);
+    transition: 0.5s;
+}
+
+.cat-card:hover .cat-img-box img { filter: grayscale(0) brightness(1); }
+
+.cat-badge {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: var(--spectra-accent);
+    color: #000;
+    font-family: 'JetBrains Mono';
+    font-size: 9px;
+    font-weight: 800;
+    padding: 5px 10px;
+}
+
+.cat-body { padding: 35px; flex-grow: 1; display: flex; flex-direction: column; }
+
+.cat-tag {
+    font-family: 'JetBrains Mono';
+    font-size: 10px;
+    color: #555;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.cat-card h3 { font-size: 22px; margin-bottom: 15px; text-transform: none; }
+.cat-card p { font-size: 14px; color: #888; line-height: 1.6; margin-bottom: 25px; }
+
+.cat-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+    margin-top: auto;
+}
+
+.cat-specs span {
+    font-family: 'JetBrains Mono';
+    font-size: 9px;
+    background: #111;
+    border: 1px solid #222;
+    padding: 4px 8px;
+    color: #aaa;
+}
+
+/* Botones */
+.btn-cat-main, .btn-cat-outline {
+    font-family: 'JetBrains Mono';
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.btn-cat-main { background: var(--spectra-accent); color: #000; }
+.btn-cat-main:hover { background: #fff; }
+
+.btn-cat-outline { border: 1px solid #333; color: #fff; }
+.btn-cat-outline:hover { border-color: var(--spectra-accent); color: var(--spectra-accent); }
+
+/* Kits */
+.kit-featured { border-top: 3px solid var(--spectra-accent); background: linear-gradient(180deg, #181818 0%, #111111 100%); }
+.cat-tag-kit { background: var(--spectra-accent); color: #000; font-family: 'JetBrains Mono'; font-size: 10px; padding: 4px 10px; margin-bottom: 20px; display: inline-block; font-weight: 800;}
+.kit-list { list-style: none; margin-bottom: 30px; }
+.kit-list li { font-size: 13px; color: #ccc; margin-bottom: 10px; display: flex; gap: 10px; }
+.kit-list li::before { content: "→"; color: var(--spectra-accent); }
