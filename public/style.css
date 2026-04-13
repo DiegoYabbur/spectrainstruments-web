@@ -1468,229 +1468,145 @@ a { color: var(--spectra-title); text-decoration: none; }
 }
 
 /* ==========================================================
-   PRODUCT PAGE: SPECTRALOG BLACKBOX LR
+   PRODUCT PAGE LAYOUT: SPECS & DOCUMENTATION
 ========================================================== */
 
-/* --- HERO SECTION --- */
-.prod-hero-section {
-    padding: 60px 0;
-    border-bottom: 1px solid var(--spectra-border);
-}
-
-.prod-hero-grid {
+/* --- SPECS & IN THE BOX SPLIT --- */
+.specs-layout-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 40px;
 }
 
-.prod-info-col {
-    display: flex;
-    flex-direction: column;
-}
-
-.prod-breadcrumbs {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    margin-bottom: 20px;
-}
-.prod-breadcrumbs a { color: #666; transition: color 0.2s; }
-.prod-breadcrumbs a:hover { color: var(--spectra-accent); }
-.prod-breadcrumbs .separator { color: #333; margin: 0 8px; }
-.prod-breadcrumbs .current { color: var(--spectra-accent); }
-
-.prod-title {
-    font-size: 4rem;
-    line-height: 1;
-    margin-bottom: 25px;
-}
-
-.prod-subtitle {
-    font-size: 15px;
-    color: var(--spectra-text);
-    line-height: 1.6;
-    margin-bottom: 30px;
-    max-width: 90%;
-}
-
-.prod-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px;
-}
-
-.prod-tags .tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    padding: 6px 12px;
-    background: rgba(229, 169, 61, 0.05);
-    border: 1px solid var(--spectra-border);
-    color: #ccc;
-    border-radius: 2px;
-}
-
-.prod-action-box {
+/* What's in the Box Styling */
+.whats-in-box-container {
     background: #141414;
     border: 1px solid var(--spectra-border);
+    border-top: 2px solid var(--spectra-accent);
     padding: 30px;
+    border-radius: 4px;
+    align-self: start; /* Para que no se estire si la tabla es muy larga */
+}
+
+.box-title {
+    font-size: 16px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.box-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.box-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.box-list li svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* --- DOCUMENTATION SECTION --- */
+.prod-docs-section {
+    padding: 80px 0 120px 0;
+    background-color: #0d0d0d;
+    border-top: 1px solid var(--spectra-border);
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.doc-card {
+    background: var(--spectra-card);
+    border: 1px solid var(--spectra-border);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
     border-radius: 4px;
 }
 
-.prod-price-block {
+.doc-card:hover {
+    border-color: var(--spectra-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.doc-header {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
-.price-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #888; letter-spacing: 1px;}
-.price-value { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; color: #fff; margin: 5px 0;}
-.price-currency { font-size: 1.2rem; color: var(--spectra-accent); }
-.price-tax { font-size: 12px; color: #666; }
+.doc-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--spectra-accent);
+}
 
-.btn-quote {
-    display: block;
-    width: 100%;
-    background: var(--spectra-accent);
-    color: #000;
+.doc-info h4 {
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: #fff;
+    text-transform: none; /* Letras normales para documentos */
+}
+
+.doc-info span {
     font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #888;
+}
+
+.doc-desc {
     font-size: 13px;
-    font-weight: 800;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.btn-download {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
     text-align: center;
-    padding: 18px;
+    border: 1px solid #333;
+    background: transparent;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
     transition: all 0.3s ease;
 }
 
-.btn-quote:hover {
-    background: #fff;
-    box-shadow: 0 0 20px rgba(229, 169, 61, 0.4);
+.btn-download:hover {
+    background: var(--spectra-accent);
+    color: #000;
+    border-color: var(--spectra-accent);
 }
 
-.prod-image-wrapper {
-    position: relative;
-    border: 1px solid var(--spectra-border);
-    border-radius: 4px;
-    overflow: hidden;
-    background: #000;
-}
-
-.prod-main-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: grayscale(0.8) contrast(1.1);
-    transition: filter 0.5s ease;
-}
-
-.prod-image-wrapper:hover .prod-main-img {
-    filter: grayscale(0) contrast(1);
-}
-
-.prod-image-overlay {
-    position: absolute;
-    bottom: 0; right: 0;
-    background: rgba(17, 17, 17, 0.9);
-    padding: 10px 15px;
-    border-top: 1px solid var(--spectra-border);
-    border-left: 1px solid var(--spectra-border);
-}
-
-.overlay-text {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--spectra-accent);
-}
-
-/* --- VALIDATION BANNER --- */
-.prod-validation-section {
-    padding: 40px 0;
-}
-
-.validation-banner {
-    background: linear-gradient(90deg, #161616 0%, #111111 100%);
-    border: 1px solid var(--spectra-accent);
-    border-left: 4px solid var(--spectra-accent);
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-}
-
-.val-text .val-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--spectra-accent); margin-bottom: 10px; display: block;}
-.val-text h3 { font-size: 20px; margin-bottom: 15px; }
-.val-text p { font-size: 13px; color: #aaa; line-height: 1.6; max-width: 600px;}
-
-.val-stats { display: flex; gap: 40px; }
-.stat { display: flex; flex-direction: column; }
-.stat-num { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: #fff; }
-.stat-desc { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #888; }
-
-/* --- BENTO FEATURES --- */
-.prod-features-section { padding: 60px 0; }
-.section-header { margin-bottom: 40px; }
-.section-header h2 { font-size: 24px; color: #fff; }
-
-.features-bento-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.feature-card {
-    background: var(--spectra-card);
-    border: 1px solid var(--spectra-border);
-    padding: 40px;
-    border-top: 2px solid #333;
-    transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-    border-top-color: var(--spectra-accent);
-    transform: translateY(-5px);
-}
-
-.feature-card.f-large { grid-column: 1 / -1; } /* Ocupa el ancho completo */
-
-.f-icon { width: 35px; height: 35px; color: var(--spectra-accent); margin-bottom: 25px; }
-.feature-card h3 { font-size: 18px; margin-bottom: 15px; }
-.feature-card p { font-size: 14px; color: #aaa; line-height: 1.6; }
-
-/* --- SPECS TABLE --- */
-.prod-specs-section {
-    padding: 20px 0 100px 0;
-}
-
-.specs-table-wrapper {
-    border: 1px solid var(--spectra-border);
-    background: var(--spectra-card);
-    border-radius: 4px;
-}
-
-.specs-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.specs-table tr { border-bottom: 1px solid var(--spectra-border); }
-.specs-table tr:last-child { border-bottom: none; }
-.specs-table tr:nth-child(even) { background-color: rgba(0,0,0,0.2); }
-
-.spec-cat {
-    width: 30%;
-    padding: 20px 30px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--spectra-accent);
-    font-weight: 700;
-    vertical-align: top;
-    border-right: 1px solid var(--spectra-border);
-}
-
-.spec-val {
-    padding: 20px 30px;
-    font-size: 14px;
-    color: #ddd;
-    line-height: 1.6;
+/* Responsividad para estas nuevas secciones */
+@media (max-width: 900px) {
+    .specs-layout-grid {
+        grid-template-columns: 1fr;
+    }
+    .docs-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
 }
