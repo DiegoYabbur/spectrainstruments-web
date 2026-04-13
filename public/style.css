@@ -1466,3 +1466,53 @@ a { color: var(--spectra-title); text-decoration: none; }
     background-color: #f44336;
     color: #fff;
 }
+
+/* =============================================
+   BLOQUE DE RESCATE RESPONSIVE (PEGA AL FINAL)
+   ============================================= */
+
+@media (max-width: 768px) {
+    /* 1. Forzar que el contenedor principal no tenga márgenes locos */
+    .dashboard-layout {
+        display: block !important; /* Desactiva el flex si el sidebar molesta */
+    }
+
+    /* 2. Matar el Sidebar fijo para que no tape los datos */
+    .dashboard-sidebar {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border);
+    }
+
+    /* 3. El contenido principal ahora usa todo el ancho */
+    .dashboard-main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 15px !important;
+    }
+
+    /* 4. ARREGLAR LAS GRILLAS (Viento, Temp, Lluvia, etc.) */
+    /* Esto obliga a que si no caben en fila, se pongan una bajo otra */
+    .weather-grid, .system-grid, .kpi-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    /* 5. Gráficos y Logs al 100% */
+    .charts-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .chart-card, .side-panel {
+        width: 100% !important;
+    }
+
+    /* 6. Ajustar textos grandes para que no rompan la caja */
+    .pro-card .kpi-value {
+        font-size: 1.5rem !important; 
+    }
+}
