@@ -1468,320 +1468,110 @@ a { color: var(--spectra-title); text-decoration: none; }
 }
 
 /* ==========================================================
-   PRODUCT PAGE: SPECTRALOG BLACKBOX LR
+   PRODUCT PAGE: SPECTRALOG REFINAMIENTOS
 ========================================================== */
 
-/* --- HERO SECTION --- */
-.prod-hero-section {
-    padding: 60px 0;
-    border-bottom: 1px solid var(--spectra-border);
-}
-
+/* --- HERO ALIGNMENT --- */
 .prod-hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: start; /* CRÍTICO: Esto alinea la foto con el título arriba */
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: start; /* Alinea el tope del título con el tope de la imagen */
 }
 
-.prod-info-col {
+.prod-status-line {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
-.prod-breadcrumbs {
+.status-dot {
+    width: 8px; height: 8px;
+    background: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.status-text {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
-    margin-bottom: 20px;
+    color: #888;
+    letter-spacing: 1px;
 }
-.prod-breadcrumbs a { color: #666; transition: color 0.2s; }
-.prod-breadcrumbs a:hover { color: var(--spectra-accent); }
-.prod-breadcrumbs .separator { color: #333; margin: 0 8px; }
-.prod-breadcrumbs .current { color: var(--spectra-accent); }
 
 .prod-title {
-    font-size: 4rem;
-    line-height: 0.95;
+    font-size: 4.5rem;
+    line-height: 0.9;
     margin: 0 0 25px 0;
+    font-weight: 900;
 }
 
-.prod-subtitle {
-    font-size: 15px;
-    color: var(--spectra-text);
-    line-height: 1.6;
-    margin-bottom: 25px;
-    max-width: 95%;
-}
-
-.prod-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.prod-tags .tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    padding: 6px 12px;
-    background: rgba(229, 169, 61, 0.05);
-    border: 1px solid var(--spectra-border);
-    color: #ccc;
-    border-radius: 2px;
-}
-
-/* NUEVO: Quick Specs de Relleno */
+/* QUICK SPECS (RELLENO) */
 .prod-quick-specs {
-    display: flex;
-    gap: 25px;
-    margin-bottom: 40px;
-    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+    padding: 25px 0;
+    border-top: 1px solid var(--spectra-border);
     border-bottom: 1px solid var(--spectra-border);
 }
 
-.q-spec {
-    display: flex;
-    flex-direction: column;
-}
+.q-spec { display: flex; flex-direction: column; }
+.q-val { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff; }
+.q-lbl { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #555; }
 
-.q-val { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800; color: #fff; }
-.q-lbl { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #888; letter-spacing: 0.5px; margin-top: 2px;}
-
-/* Caja de Compra */
-.prod-action-box {
-    background: #141414;
-    border: 1px solid var(--spectra-border);
-    padding: 30px;
-    border-radius: 4px;
-}
-
-.prod-price-block {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.price-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #888; letter-spacing: 1px;}
-.price-value { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; color: #fff; margin: 5px 0;}
-.price-currency { font-size: 1.2rem; color: var(--spectra-accent); }
-.price-tax { font-size: 12px; color: #666; }
-
-.btn-quote {
-    display: block;
-    width: 100%;
-    background: var(--spectra-accent);
-    color: #000;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    font-weight: 800;
-    text-align: center;
-    padding: 18px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-}
-
-.btn-quote:hover {
-    background: #fff;
-    box-shadow: 0 0 20px rgba(229, 169, 61, 0.4);
-}
-
-/* Imagen Ajustada */
-.prod-image-wrapper {
-    position: relative;
-    border: 1px solid var(--spectra-border);
-    border-radius: 4px;
-    overflow: hidden;
-    background: #000;
-    /* Quitamos alturas fijas, ahora se acomoda al contenido de la izquierda */
-}
-
-.prod-main-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: grayscale(0.8) contrast(1.1);
-    transition: filter 0.5s ease;
-}
-
-.prod-image-wrapper:hover .prod-main-img {
-    filter: grayscale(0) contrast(1);
-}
-
+/* OVERLAY DE IMAGEN */
 .prod-image-overlay {
     position: absolute;
-    bottom: 0; right: 0;
-    background: rgba(17, 17, 17, 0.9);
-    padding: 10px 15px;
-    border-top: 1px solid var(--spectra-border);
-    border-left: 1px solid var(--spectra-border);
+    bottom: 0; left: 0; right: 0;
+    background: rgba(10, 10, 10, 0.9);
+    padding: 15px 25px;
     display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--spectra-border);
 }
 
-.overlay-text {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--spectra-accent);
-}
+.overlay-item { display: flex; flex-direction: column; }
+.o-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #555; }
+.o-val { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--spectra-accent); }
 
-/* --- VALIDATION BANNER --- */
-.prod-validation-section { padding: 40px 0; }
-
-.validation-banner {
-    background: linear-gradient(90deg, #161616 0%, #111111 100%);
-    border: 1px solid var(--spectra-accent);
-    border-left: 4px solid var(--spectra-accent);
+/* --- SECCIÓN ¿QUÉ INCLUYE LA CAJA? (BAJO SPECS) --- */
+.whats-in-box-full {
+    margin-top: 40px;
+    background: #0f0f0f;
+    border: 1px solid var(--spectra-border);
     padding: 40px;
+}
+
+.box-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    margin-bottom: 35px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #222;
 }
 
-.val-text .val-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--spectra-accent); margin-bottom: 10px; display: block;}
-.val-text h3 { font-size: 20px; margin-bottom: 15px; }
-.val-text p { font-size: 13px; color: #aaa; line-height: 1.6; max-width: 600px;}
+.box-title { font-size: 18px; color: #fff; letter-spacing: 1px; }
+.box-sku { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #444; }
 
-.val-stats { display: flex; gap: 40px; }
-.stat { display: flex; flex-direction: column; }
-.stat-num { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: #fff; }
-.stat-desc { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #888; }
-
-/* --- BENTO FEATURES --- */
-.prod-features-section { padding: 60px 0; }
-.section-header { margin-bottom: 40px; }
-.section-header h2 { font-size: 24px; color: #fff; }
-
-.features-bento-grid {
+.box-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
 }
 
-.feature-card {
-    background: var(--spectra-card);
-    border: 1px solid var(--spectra-border);
-    padding: 40px;
-    border-top: 2px solid #333;
-    transition: all 0.3s ease;
-}
+.box-item { display: flex; gap: 15px; }
+.box-item svg { width: 20px; height: 20px; color: var(--spectra-accent); flex-shrink: 0; }
+.box-item p { font-size: 12px; color: #888; line-height: 1.4; }
+.box-item p strong { color: #fff; display: block; margin-bottom: 4px; }
 
-.feature-card:hover {
-    border-top-color: var(--spectra-accent);
-    transform: translateY(-5px);
-}
-
-.feature-card.f-large { grid-column: 1 / -1; }
-
-.f-icon { width: 35px; height: 35px; color: var(--spectra-accent); margin-bottom: 25px; }
-.feature-card h3 { font-size: 18px; margin-bottom: 15px; }
-.feature-card p { font-size: 14px; color: #aaa; line-height: 1.6; }
-
-/* --- SPECS & IN THE BOX SPLIT --- */
-.specs-layout-grid {
-    display: grid;
-    grid-template-columns: 2.5fr 1fr;
-    gap: 40px;
-}
-
-/* Tabla Specs */
-.prod-specs-section { padding: 20px 0 60px 0; }
-
+/* Ajuste tabla de especificaciones para que no sea tan ancha */
 .specs-table-wrapper {
-    border: 1px solid var(--spectra-border);
-    background: var(--spectra-card);
-    border-radius: 4px;
-}
-
-.specs-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.specs-table tr { border-bottom: 1px solid var(--spectra-border); }
-.specs-table tr:last-child { border-bottom: none; }
-.specs-table tr:nth-child(even) { background-color: rgba(0,0,0,0.2); }
-
-.spec-cat {
-    width: 30%;
-    padding: 20px 30px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--spectra-accent);
-    font-weight: 700;
-    vertical-align: top;
-    border-right: 1px solid var(--spectra-border);
-}
-
-.spec-val { padding: 20px 30px; font-size: 14px; color: #ddd; line-height: 1.6; }
-
-/* In the Box */
-.whats-in-box-container {
-    background: #141414;
-    border: 1px solid var(--spectra-border);
-    border-top: 2px solid var(--spectra-accent);
-    padding: 30px;
-    border-radius: 4px;
-    align-self: start; 
-}
-
-.box-title { font-size: 16px; margin-bottom: 25px; letter-spacing: 0.5px; }
-
-.box-list { list-style: none; padding: 0; margin: 0; }
-.box-list li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; font-size: 13px; color: #ddd; line-height: 1.5; }
-.box-list li svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
-
-/* --- DOCUMENTATION SECTION --- */
-.prod-docs-section {
-    padding: 80px 0 120px 0;
-    background-color: #0d0d0d;
-    border-top: 1px solid var(--spectra-border);
-}
-
-.docs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.doc-card {
-    background: var(--spectra-card);
-    border: 1px solid var(--spectra-border);
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-}
-
-.doc-card:hover {
-    border-color: var(--spectra-accent);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-
-.doc-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
-.doc-icon { width: 36px; height: 36px; color: var(--spectra-accent); }
-.doc-info h4 { font-size: 16px; margin-bottom: 4px; color: #fff; text-transform: none; }
-.doc-info span { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #888; }
-.doc-desc { font-size: 13px; color: #aaa; line-height: 1.6; margin-bottom: 30px; flex-grow: 1; }
-
-.btn-download {
-    display: inline-block;
-    width: 100%;
-    padding: 12px;
-    text-align: center;
-    border: 1px solid #333;
     background: transparent;
-    color: #fff;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
+    border: 1px solid var(--spectra-border);
 }
 
-.btn-download:hover {
-    background: var(--spectra-accent);
-    color: #000;
-    border-color: var(--spectra-accent);
-}
+.specs-table td { padding: 20px 25px !important; }
