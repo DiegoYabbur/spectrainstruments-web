@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200">
-    <title>Catálogo Técnico 2026 | Spectra Instruments</title>
+    <title>Catálogo Técnico | Spectra Instruments</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
 </head>
@@ -17,7 +17,7 @@
             </div>
             <nav class="header__inline-menu">
                 <ul class="list-menu--inline">
-                    <li><a href="catalogo.html" class="header__menu-item"><span>CATÁLOGO ↗</span></a></li>
+                    <li><a href="catalogo.html" class="header__menu-item active-link"><span>CATÁLOGO ↗</span></a></li>
                     <li><a href="spectracloud.html" class="header__menu-item"><span>SpectraCloud</span></a></li>
                     <li><a href="soporte.html" class="header__menu-item"><span>Soporte</span></a></li>
                     <li><a href="contacto.html" class="header__menu-item"><span>Contacto</span></a></li>
@@ -29,160 +29,162 @@
 
 <main style="padding-top: 80px;">
 
-    <section class="cat-header-section">
+    <section class="cat-hero">
         <div class="grid-container">
-            <div class="cat-intro">
-                <p class="cat-rev">// INDUSTRIAL CATALOG REV. 2026.04</p>
-                <h1>INSTRUMENTACIÓN<br>DE PRECISIÓN_</h1>
-                <p class="cat-subtitle">Hardware robusto diseñado para la validación científica y el monitoreo industrial en entornos extremos.</p>
-            </div>
+            <p class="cat-label">// PRODUCT CATALOG 2026</p>
+            <h1>INSTRUMENTACIÓN<br>INDUSTRIAL_</h1>
+            <p class="cat-desc-top">Sistemas de adquisición de datos y sensores de precisión diseñados para la validación científica en entornos de alta exigencia.</p>
         </div>
     </section>
 
-    <section class="cat-section">
+    <nav class="cat-nav">
         <div class="grid-container">
-            <div class="section-technical-header">
-                <h2>01. DATALOGGERS & NODOS_</h2>
+            <div class="cat-nav-inner">
+                <a href="#dataloggers">01. DATALOGGERS</a>
+                <a href="#sensores">02. SENSORES</a>
+                <a href="#kits">03. KITS COMPLETOS</a>
             </div>
-            <div class="catalog-grid">
-                
-                <div class="cat-card">
-                    <div class="cat-img-box">
-                        <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?q=80&w=800" alt="BlackBox LR">
-                        <span class="cat-badge">BEST SELLER</span>
-                    </div>
-                    <div class="cat-body">
-                        <span class="cat-tag">LoRaWAN / RS485</span>
+        </div>
+    </nav>
+
+    <section id="dataloggers" class="cat-group-section">
+        <div class="grid-container">
+            <div class="group-header">
+                <h2>DATALOGGERS & NODOS_</h2>
+                <p>Cerebros de telemetría con protocolos industriales y bajo consumo.</p>
+            </div>
+
+            <div class="cat-grid">
+                <div class="cat-item">
+                    <div class="cat-img-wrapper"><img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?q=80&w=800" alt="BlackBox"></div>
+                    <div class="cat-content">
+                        <span class="cat-type">TELEMETRÍA LORA</span>
                         <h3>SpectraLog BlackBox LR</h3>
-                        <p>Datalogger industrial IP67. El estándar para telemetría remota. Dual-Core ESP32-S3 con redundancia de datos.</p>
-                        <div class="cat-specs">
-                            <span>15km Range</span><span>Dual SD/Flash</span><span>Solar Ready</span>
+                        <p>El estándar industrial. ESP32-S3, RS485 Modbus y enlace LoRaWAN de 15km.</p>
+                        <div class="cat-spec-list">
+                            <span>IP67</span><span>Dual SD/Flash</span><span>Solar MPPT</span>
                         </div>
-                        <a href="spectralog-blackbox.html" class="btn-cat-main">VER DETALLES</a>
+                        <a href="spectralog-blackbox.html" class="cat-btn-main">FICHA TÉCNICA</a>
                     </div>
                 </div>
 
-                <div class="cat-card">
-                    <div class="cat-img-box">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800" alt="Quantum LR">
-                        <span class="cat-badge">CIENTÍFICO</span>
-                    </div>
-                    <div class="cat-body">
-                        <span class="cat-tag">HIGH PRECISION ADC</span>
+                <div class="cat-item">
+                    <div class="cat-img-wrapper"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800" alt="Quantum"></div>
+                    <div class="cat-content">
+                        <span class="cat-type">CIENTÍFICO / ALTA VELOCIDAD</span>
                         <h3>SpectraLog Quantum LR</h3>
-                        <p>Estación de grado científico. Mayor capacidad de procesamiento y muestreo de alta velocidad para sensores de flujo y radiación.</p>
-                        <div class="cat-specs">
-                            <span>24-bit ADC</span><span>WiFi/BT/LoRa</span><span>Multi-Channel</span>
+                        <p>Datalogger de alta precisión con ADC de 24 bits para sensores analógicos críticos.</p>
+                        <div class="cat-spec-list">
+                            <span>24-bit ADC</span><span>Ultra Precision</span><span>WiFi/LoRa</span>
                         </div>
-                        <a href="mailto:diego@spectrainstruments.cl?subject=Cotizacion%20Quantum%20LR" class="btn-cat-outline">COTIZAR</a>
+                        <a href="mailto:diego@spectrainstruments.cl?subject=Cotización Quantum LR" class="cat-btn-outline">COTIZAR</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section class="cat-section" style="background-color: #0c0c0c;">
+    <section id="sensores" class="cat-group-section gray-bg">
         <div class="grid-container">
-            <div class="section-technical-header">
-                <h2>02. SENSORES & TRANSDUCTORES_</h2>
+            <div class="group-header">
+                <h2>SENSORES & TRANSDUCTORES_</h2>
+                <p>Periféricos validados para meteorología, suelos y análisis de líquidos.</p>
             </div>
-            <div class="catalog-grid">
-                
-                <div class="cat-card">
-                    <div class="cat-body">
-                        <span class="cat-tag">METEOROLOGÍA</span>
-                        <h3>NBL 5-in-1 Station</h3>
-                        <p>Sensor integrado de Temperatura, Humedad, Presión, Velocidad y Dirección del viento. Protocolo Modbus RTU nativo.</p>
-                        <div class="cat-specs">
-                            <span>RS485</span><span>Precision ±3%</span><span>Industrial Grade</span>
+
+            <div class="cat-grid">
+                <div class="cat-item">
+                    <div class="cat-content">
+                        <span class="cat-type">CLIMA</span>
+                        <h3>Estación NBL 5-in-1</h3>
+                        <p>Temperatura, Humedad, Presión, Viento (Vel/Dir) en un solo cuerpo Modbus RS485.</p>
+                        <div class="cat-spec-list">
+                            <span>RS485</span><span>Modbus RTU</span><span>UV Resistant</span>
                         </div>
-                        <a href="#" class="btn-cat-outline">DATASHEET</a>
+                        <a href="#" class="cat-btn-outline">DATASHEET</a>
                     </div>
                 </div>
 
-                <div class="cat-card">
-                    <div class="cat-body">
-                        <span class="cat-tag">PROPIETARIO SPECTRA</span>
+                <div class="cat-item">
+                    <div class="cat-content">
+                        <span class="cat-type">PROPIETARIO SPECTRA</span>
                         <h3>Sensor "El Chagual"</h3>
-                        <p>Transductor especializado para el monitoreo de flujos ambientales y variables críticas en terrenos agrestes.</p>
-                        <div class="cat-specs">
-                            <span>SpectraBus</span><span>IP68</span><span>Ultra-Low Power</span>
+                        <p>Transductor robusto para variables ambientales complejas en zonas cordilleranas.</p>
+                        <div class="cat-spec-list">
+                            <span>SpectraBus</span><span>IP68</span><span>Deep-Low Power</span>
                         </div>
-                        <a href="#" class="btn-cat-outline">VER MÁS</a>
+                        <a href="#" class="cat-btn-outline">VER MÁS</a>
                     </div>
                 </div>
 
-                <div class="cat-card">
-                    <div class="cat-body">
-                        <span class="cat-tag">LIQUID ANALYSIS</span>
-                        <h3>Sondas Pro: pH / O2 / Temp</h3>
-                        <p>Sensores galvánicos para análisis de agua. Compensación de temperatura automática y aislación galvánica para lecturas sin ruido.</p>
-                        <div class="cat-specs">
-                            <span>pH 0-14</span><span>DO 0-20mg/L</span><span>PT1000</span>
+                <div class="cat-item water-accent">
+                    <div class="cat-content">
+                        <span class="cat-type">LIQUID ANALYSIS</span>
+                        <h3>Sondas pH / O2 Disuelto</h3>
+                        <p>Sondas de grado industrial con compensación de temperatura y aislación galvánica.</p>
+                        <div class="cat-spec-list">
+                            <span>pH 0-14</span><span>DO 0-20mg/L</span><span>Analógico/I2C</span>
                         </div>
-                        <a href="#" class="btn-cat-outline">CATÁLOGO H2O</a>
+                        <a href="#" class="cat-btn-outline">CATÁLOGO AGUA</a>
                     </div>
                 </div>
 
-                <div class="cat-card">
-                    <div class="cat-body">
-                        <span class="cat-tag">AGRO-TECH</span>
+                <div class="cat-item earth-accent">
+                    <div class="cat-content">
+                        <span class="cat-type">SUELO</span>
                         <h3>SpectraSoil V3</h3>
-                        <p>Sensor de humedad de suelo capacitivo (VWC), Temperatura y Conductividad Eléctrica (EC).</p>
-                        <div class="cat-specs">
-                            <span>FDR Tech</span><span>RS485</span><span>Epoxy Sealed</span>
+                        <p>Sensor capacitivo de Humedad Volumétrica (VWC), Conductividad (EC) y Temp.</p>
+                        <div class="cat-spec-list">
+                            <span>FDR Tech</span><span>RS485</span><span>Epoxy Grade</span>
                         </div>
-                        <a href="#" class="btn-cat-outline">COTIZAR</a>
+                        <a href="#" class="cat-btn-outline">COTIZAR</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section class="cat-section">
+    <section id="kits" class="cat-group-section">
         <div class="grid-container">
-            <div class="section-technical-header">
-                <h2>03. KITS & SOLUCIONES LLAVE EN MANO_</h2>
+            <div class="group-header">
+                <h2>KITS & SOLUCIONES LLAVE EN MANO_</h2>
+                <p>Ecosistemas completos pre-configurados para despliegue inmediato.</p>
             </div>
-            <div class="catalog-grid">
-                
-                <div class="cat-card kit-featured">
-                    <div class="cat-body">
-                        <span class="cat-tag-kit">READY TO DEPLOY</span>
-                        <h3>Kit Climatológico Base</h3>
-                        <p>La solución definitiva para investigación FONDECYT. Incluye el BlackBox LR y la estación NBL 5-in-1 configurados.</p>
-                        <ul class="kit-list">
-                            <li>1x SpectraLog BlackBox LR</li>
-                            <li>1x Estación Meteorológica NBL</li>
-                            <li>1x Panel Solar 10W + Montaje</li>
+
+            <div class="cat-grid">
+                <div class="cat-item kit-card">
+                    <div class="cat-content">
+                        <span class="kit-badge">POPULAR</span>
+                        <h3>Kit Meteorológico Pro</h3>
+                        <p>La combinación perfecta: BlackBox LR + Estación NBL 5-in-1 + Panel Solar.</p>
+                        <ul class="kit-features">
+                            <li>Listo para enviar a SpectraCloud</li>
+                            <li>Autonomía solar ilimitada</li>
+                            <li>Montaje en poste incluido</li>
                         </ul>
-                        <a href="mailto:diego@spectrainstruments.cl?subject=Cotizacion%20Kit%20Climatico" class="btn-cat-main">SOLICITAR COTIZACIÓN</a>
+                        <a href="mailto:diego@spectrainstruments.cl?subject=Cotizacion Kit Pro" class="cat-btn-main">SOLICITAR COTIZACIÓN</a>
                     </div>
                 </div>
 
-                <div class="cat-card kit-featured" style="border-top-color: #00d4ff;">
-                    <div class="cat-body">
-                        <span class="cat-tag-kit" style="background: #00d4ff; color: #000;">AQUAPONICS SPECIAL</span>
-                        <h3>SpectraPhonics System</h3>
-                        <p>Sistema avanzado de monitoreo y control para Acuaponía e Hidroponía de precisión.</p>
-                        <ul class="kit-list">
-                            <li>Gestión de pH y Oxígeno Disuelto</li>
-                            <li>4x Salidas para Actuadores (Bombas/Aire)</li>
-                            <li>Dashboard SpectraCloud Dedicado</li>
+                <div class="cat-item kit-card phonics-card">
+                    <div class="cat-content">
+                        <span class="kit-badge blue">ADVANCED</span>
+                        <h3>SpectraPhonics</h3>
+                        <p>Sistema integral para Acuaponía e Hidroponía de alta escala con actuadores.</p>
+                        <ul class="kit-features">
+                            <li>Control de pH y Oxígeno Disuelto</li>
+                            <li>4x Salidas para Bombas/Aireadores</li>
+                            <li>Monitoreo en tiempo real (Cloud)</li>
                         </ul>
-                        <a href="mailto:diego@spectrainstruments.cl?subject=Cotizacion%20Sistema%20SpectraPhonics" class="btn-cat-main" style="background: #00d4ff;">COTIZAR SISTEMA</a>
+                        <a href="mailto:diego@spectrainstruments.cl?subject=Cotizacion SpectraPhonics" class="cat-btn-main blue-btn">COTIZAR SISTEMA</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
 </main>
 
-<footer class="spectra-footer">
+<footer class="footer">
     </footer>
 
 </body>
