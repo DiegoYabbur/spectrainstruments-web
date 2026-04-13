@@ -90,6 +90,10 @@
                 <span class="kpi-label">TENSIÓN BATERÍA</span>
                 <div class="kpi-value"><span id="val-bat">--</span> <span class="unit">V</span></div>
             </div>
+            <div class="kpi-card">
+                <span class="kpi-label">LLUVIA (PULSOS)</span>
+                <div class="kpi-value"><span id="val-lluvia">--</span> <span class="unit">T</span></div>
+            </div>
         </div>
 
         <div class="charts-grid">
@@ -120,6 +124,9 @@
                             <option value="viento_dir">Dirección Viento (°)</option>
                             <option value="presion">Presión (hPa)</option>
                             <option value="bat_v">Batería (V)</option>
+                            <option value="lluvia">Lluvia Acumulada (Pulsos)</option>
+                            <option value="int_temp">Temp. Interna Equipo (°C)</option>
+                            <option value="int_rh">Hum. Interna Equipo (%)</option>
                         </select>
                     </div>
                 </div>
@@ -255,6 +262,7 @@
         if(document.getElementById('val-hum')) document.getElementById('val-hum').innerText = (ultimoRegistro.rh != null) ? ultimoRegistro.rh : '--';
         if(document.getElementById('val-viento')) document.getElementById('val-viento').innerText = (ultimoRegistro.viento_vel != null) ? ultimoRegistro.viento_vel : '--';
         if(document.getElementById('val-bat')) document.getElementById('val-bat').innerText = (ultimoRegistro.bat_v != null) ? ultimoRegistro.bat_v : '--';
+        if(document.getElementById('val-lluvia')) document.getElementById('val-lluvia').innerText = (ultimoRegistro.lluvia != null) ? ultimoRegistro.lluvia : '--';
         
         if(document.getElementById('val-time')){
             const fechaUltima = new Date(ultimoRegistro.created_at);
@@ -277,7 +285,9 @@
         const nombresVariable = {
             'temp': 'Temperatura (°C)', 'rh': 'Humedad Relativa (%)',
             'viento_vel': 'Velocidad Viento (km/h)', 'viento_dir': 'Dirección Viento (°)',
-            'presion': 'Presión Barométrica (hPa)', 'bat_v': 'Tensión Batería (V)'
+            'presion': 'Presión Barométrica (hPa)', 'bat_v': 'Tensión Batería (V)',
+            'lluvia': 'Lluvia Acumulada (Pulsos)', 'int_temp': 'Temp. Interna Equipo (°C)', 
+            'int_rh': 'Hum. Interna Equipo (%)'
         };
         spectraChart.data.datasets[0].label = nombresVariable[variableElegida];
         spectraChart.update();
@@ -293,7 +303,7 @@
                 const li = document.createElement('li');
                 li.innerHTML = `
                     <span class="log-time">${d.toLocaleDateString()} ${d.toLocaleTimeString()}</span> 
-                    <span class="log-msg">T: ${registro.temp != null ? registro.temp : '-'}°C, H: ${registro.rh != null ? registro.rh : '-'}%, Vbat: ${registro.bat_v != null ? registro.bat_v : '-'}V</span>
+                    <span class="log-msg">T: ${registro.temp != null ? registro.temp : '-'}°C, Lluvia: ${registro.lluvia != null ? registro.lluvia : '-'}, Vbat: ${registro.bat_v != null ? registro.bat_v : '-'}V</span>
                 `;
                 logList.appendChild(li);
             });

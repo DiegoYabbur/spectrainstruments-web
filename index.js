@@ -39,7 +39,10 @@ app.post('/api/data', async (req, res) => {
                 temp: data.temp,
                 rh: data.rh,
                 presion: data.presion,
-                bat_v: data.bat_v
+                bat_v: data.bat_v,
+                lluvia: data.lluvia,     
+                int_temp: data.int_temp,   
+                int_rh: data.int_rh        
             }
         ])
         .select(); 

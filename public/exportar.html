@@ -43,10 +43,6 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
                 Exportar Datos (CSV/ZIP)
             </a>
-            <a href="#" class="nav-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"></path></svg>
-                Alertas Activas
-            </a>
         </nav>
 
         <div class="sidebar-bottom">
@@ -172,10 +168,10 @@
 
     // 3. GENERADOR CSV
     function generarCSV(datosArray) {
-        let csv = "Fecha_Hora,Device_ID,Temperatura_C,Humedad_RH,Presion_hPa,Viento_Vel,Viento_Dir,Bateria_V\n";
+        let csv = "Fecha_Hora,Device_ID,Temperatura_C,Humedad_RH,Presion_hPa,Viento_Vel_kmh,Viento_Dir_deg,Bateria_V,Lluvia_Pulsos,Int_Temp_C,Int_Hum_RH\n";
         datosArray.forEach(row => {
             const fHora = row.created_at ? new Date(row.created_at).toISOString() : '';
-            csv += `${fHora},${row.device_id || ''},${row.temp != null ? row.temp : ''},${row.rh != null ? row.rh : ''},${row.presion != null ? row.presion : ''},${row.viento_vel != null ? row.viento_vel : ''},${row.viento_dir != null ? row.viento_dir : ''},${row.bat_v != null ? row.bat_v : ''}\n`;
+            csv += `${fHora},${row.device_id || ''},${row.temp != null ? row.temp : ''},${row.rh != null ? row.rh : ''},${row.presion != null ? row.presion : ''},${row.viento_vel != null ? row.viento_vel : ''},${row.viento_dir != null ? row.viento_dir : ''},${row.bat_v != null ? row.bat_v : ''},${row.lluvia != null ? row.lluvia : ''},${row.int_temp != null ? row.int_temp : ''},${row.int_rh != null ? row.int_rh : ''}\n`;
         });
         return csv;
     }
