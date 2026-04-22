@@ -1,0 +1,295 @@
+/* ============================================================
+   SPECTRA INSTRUMENTS — RESPONSIVE MOBILE CSS
+   Adjuntar al FINAL de style.css
+   ============================================================ */
+
+/* ── VIEWPORT FIX GLOBAL ─────────────────────────────────── */
+/* El viewport actual está fijado en 1200px — esto lo corrige */
+/* IMPORTANTE: Cambia también en cada <head> de los HTML:
+   DE:   <meta name="viewport" content="width=1200">
+   A:    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+*/
+
+/* ── HAMBURGER MENU ──────────────────────────────────────── */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  z-index: 10001;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--spectra-title);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── MOBILE DRAWER NAV ───────────────────────────────────── */
+.mobile-nav-drawer {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #0c0c0c;
+  border-top: 1px solid var(--spectra-border);
+  z-index: 9998;
+  padding: 40px 24px;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mobile-nav-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-drawer a {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--spectra-text);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--spectra-border);
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-drawer a:hover,
+.mobile-nav-drawer a.active-link {
+  color: var(--spectra-accent);
+}
+
+.mobile-nav-section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 30px 0 10px 0;
+  display: block;
+}
+
+.mobile-nav-cta {
+  margin-top: 30px;
+  display: block;
+  border: 1px solid var(--spectra-accent) !important;
+  color: var(--spectra-accent) !important;
+  padding: 16px 24px !important;
+  text-align: center;
+  border-bottom: none !important;
+}
+
+/* ── BREAKPOINT: TABLET (< 900px) ───────────────────────── */
+@media (max-width: 900px) {
+  /* Header */
+  .header__inline-menu { display: none; }
+  .hamburger-btn { display: flex; }
+
+  /* Mega menu deshabilitado en móvil */
+  .mega-menu { display: none !important; }
+  .mobile-nav-drawer { display: block; }
+
+  /* Hero principal */
+  .main-title h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    letter-spacing: -2px;
+  }
+
+  /* Grillas genéricas */
+  .objex-grid,
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .info-col {
+    padding: 40px 0;
+    border-right: none;
+  }
+
+  .image-col {
+    min-height: 300px;
+    border-left: none;
+    border-top: 1px solid #1a1a1a;
+  }
+}
+
+/* ── BREAKPOINT: MÓVIL (< 768px) ────────────────────────── */
+@media (max-width: 768px) {
+  /* Espaciados */
+  main { padding-top: 80px; }
+  .grid-container { padding: 0 16px; }
+
+  /* Catálogo */
+  .cat-hero { padding: 40px 0 30px; }
+  .cat-hero h1 { font-size: clamp(2rem, 9vw, 3.5rem); }
+  .cat-grid { grid-template-columns: 1fr; }
+  .cat-nav-inner { flex-direction: column; gap: 8px; }
+  .cat-nav-inner a {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--spectra-border);
+    font-size: 11px;
+  }
+
+  /* Catálogo — cards */
+  .cat-item {
+    flex-direction: column;
+  }
+  .cat-img-wrapper {
+    width: 100%;
+    height: 200px;
+  }
+  .cat-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-title { font-size: clamp(2rem, 8vw, 3rem); }
+  .contact-info-panel { padding: 24px; }
+
+  /* Soporte */
+  .support-title { font-size: clamp(2rem, 8vw, 3rem); }
+  .support-grid { grid-template-columns: 1fr; }
+  .ticket-box { flex-direction: column; gap: 24px; }
+  .ticket-action { width: 100%; }
+  .ticket-action .btn-main { width: 100%; text-align: center; }
+
+  /* Dashboard */
+  .dashboard-layout { grid-template-columns: 1fr; }
+  .dashboard-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    z-index: 100;
+    border-top: 1px solid var(--spectra-border);
+    border-right: none;
+    padding: 8px 0;
+    overflow-x: auto;
+    background: #0c0c0c;
+  }
+  .sidebar-brand { display: none; }
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .nav-item {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 9px;
+    padding: 6px 12px;
+    text-align: center;
+  }
+  .nav-item svg { width: 20px; height: 20px; }
+  .sidebar-bottom {
+    display: none; /* Ocultar sesión en bottom bar */
+  }
+  .dashboard-main {
+    margin-bottom: 70px; /* Espacio para el bottom nav */
+    padding: 16px;
+  }
+  .nodes-grid {
+    grid-template-columns: 1fr;
+  }
+  .dash-actions { display: none; }
+
+  /* Footer */
+  .footer-container { grid-template-columns: 1fr; gap: 30px; }
+  .bottom-inner { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-socials-brand { justify-content: center; }
+  .footer-desc { max-width: 100%; }
+
+  /* FAQ */
+  .faq-grid { grid-template-columns: 1fr; }
+
+  /* spectracloud page */
+  .cloud-features-grid,
+  .cloud-pricing-grid { grid-template-columns: 1fr; }
+  .cloud-hero h1 { font-size: clamp(2rem, 8vw, 3.5rem); }
+  .pricing-card.featured { transform: none; }
+
+  /* spectralog blackbox */
+  .bb-hero-inner { flex-direction: column; }
+  .bb-spec-grid { grid-template-columns: 1fr 1fr; }
+  .bb-tabs-content { padding: 20px; }
+
+  /* Forms */
+  .form-row { flex-direction: column; gap: 0; }
+  .spectra-form { padding: 0; }
+
+  /* Kits */
+  .cat-grid.kits-grid { grid-template-columns: 1fr; }
+}
+
+/* ── BREAKPOINT: MÓVIL PEQUEÑO (< 480px) ────────────────── */
+@media (max-width: 480px) {
+  .header__heading-link span { font-size: 18px; }
+  .cat-hero h1 { font-size: 2rem; }
+  .bb-spec-grid { grid-template-columns: 1fr; }
+  .cat-spec-list { flex-wrap: wrap; gap: 6px; }
+  .contact-title { font-size: 1.8rem; }
+}
+
+/* ── TOUCH IMPROVEMENTS ──────────────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  /* Aumentar áreas táctiles */
+  .cat-btn-main,
+  .cat-btn-outline,
+  .btn-main,
+  .btn-submit,
+  .nav-item {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Deshabilitar efectos hover en touch */
+  .mega-col:hover { transform: none; }
+  .header__menu-item::after { display: none; }
+}
+
+/* ── SAFE AREA (iPhone notch / Dynamic Island) ───────────── */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .header {
+    padding-top: env(safe-area-inset-top);
+    height: calc(80px + env(safe-area-inset-top));
+  }
+  main {
+    padding-top: calc(80px + env(safe-area-inset-top));
+  }
+  .dashboard-sidebar {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .mobile-nav-drawer {
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  }
+}

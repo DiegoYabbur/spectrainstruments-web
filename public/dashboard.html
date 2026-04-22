@@ -2,9 +2,38 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>SpectraCloud | Panel de Telemetría</title>
     <link rel="stylesheet" href="style.css">
+    <!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+ 
+<!-- Color de la barra de estado del navegador (Android) -->
+<meta name="theme-color" content="#e5a93d">
+ 
+<!-- iOS (Safari no lee el manifest) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Spectra">
+<link rel="apple-touch-icon" href="/icons/icon-180x180.png">
+ 
+<!-- Splash screens básicos iOS -->
+<link rel="apple-touch-startup-image" href="/icons/splash-1125x2436.png"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+ 
+<!-- Windows / Edge PWA -->
+<meta name="msapplication-TileColor" content="#111111">
+<meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+ 
+<!-- SEO / Open Graph básico -->
+<meta name="description" content="Instrumentación industrial IoT. Dataloggers LoRaWAN, sensores de precisión y plataforma SpectraCloud para monitoreo en tiempo real.">
+<meta property="og:title" content="Spectra Instruments SpA">
+<meta property="og:description" content="Hardware para entornos extremos. LoRa + RS485 + Solar.">
+<meta property="og:image" content="/icons/icon-512x512.png">
+<meta property="og:type" content="website">
+ 
+<!-- CSS responsive (añadir DESPUÉS de style.css) -->
+<link rel="stylesheet" href="responsive-mobile.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -120,6 +149,56 @@
         }
     </style>
 </head>
+
+<script>
+  // Registro del Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/service-worker.js', { scope: '/' })
+        .then((registration) => {
+          console.log('[Spectra PWA] Service Worker registrado. Scope:', registration.scope);
+ 
+          // Detecta actualizaciones del SW y avisa al usuario
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // Hay una versión nueva disponible
+                if (confirm('Nueva versión de Spectra disponible. ¿Actualizar ahora?')) {
+                  newWorker.postMessage({ type: 'SKIP_WAITING' });
+                  window.location.reload();
+                }
+              }
+            });
+          });
+        })
+        .catch((error) => {
+          console.error('[Spectra PWA] Error al registrar SW:', error);
+        });
+    });
+  }
+ 
+  // Banner de instalación PWA (Android Chrome)
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Mostrar el botón de instalación si existe en la página
+    const installBtn = document.getElementById('pwa-install-btn');
+    if (installBtn) {
+      installBtn.style.display = 'flex';
+      installBtn.addEventListener('click', async () => {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log('[Spectra PWA] Resultado instalación:', outcome);
+        deferredPrompt = null;
+        installBtn.style.display = 'none';
+      });
+    }
+  });
+</script>
+
 <body class="dashboard-body">
 
 <div class="dashboard-layout">

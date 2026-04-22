@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Spectra Instruments SpA | Hardware for Extreme Environments</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
@@ -11,6 +11,45 @@
 
     <header class="header">
     <div class="grid-container">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menú">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+ 
+<!-- Drawer de navegación móvil — Añadir DESPUÉS del </header> -->
+<nav class="mobile-nav-drawer" id="mobile-nav-drawer">
+  <span class="mobile-nav-section-label">// Navegación</span>
+  <a href="index.html">Inicio</a>
+  <a href="catalogo.html">Catálogo ↗</a>
+  <a href="spectracloud.html">SpectraCloud</a>
+  <a href="soporte.html">Soporte</a>
+  <a href="contacto.html">Contacto</a>
+  <span class="mobile-nav-section-label">// Productos</span>
+  <a href="spectralog-blackbox.html">SpectraLog BlackBox LR</a>
+  <a href="contacto.html" class="mobile-nav-cta">SOLICITAR COTIZACIÓN →</a>
+</nav>
+ 
+<script>
+  // Hamburger toggle
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileDrawer = document.getElementById('mobile-nav-drawer');
+  if (hamburgerBtn && mobileDrawer) {
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('active');
+      mobileDrawer.classList.toggle('open');
+      document.body.style.overflow = mobileDrawer.classList.contains('open') ? 'hidden' : '';
+    });
+    // Cerrar al hacer click en un link
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('active');
+        mobileDrawer.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>
         <div class="header-alignment-inner">
             <div class="header__logo">
                 <a href="/" class="header__heading-link">
