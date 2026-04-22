@@ -6,51 +6,23 @@
     <title>Soporte Técnico & Documentación | Spectra Instruments SpA</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#e5a93d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Spectra">
+    <link rel="apple-touch-icon" href="/icons/icon-180x180.png">
+    <meta name="msapplication-TileColor" content="#111111">
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+    <meta name="description" content="Instrumentación industrial IoT. Dataloggers LoRaWAN, sensores de precisión y plataforma SpectraCloud para monitoreo en tiempo real.">
+    <link rel="stylesheet" href="responsive-mobile.css">
 </head>
 <body>
 
 <header class="header">
     <div class="grid-container">
-        <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menú">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
- 
-<!-- Drawer de navegación móvil — Añadir DESPUÉS del </header> -->
-<nav class="mobile-nav-drawer" id="mobile-nav-drawer">
-  <span class="mobile-nav-section-label">// Navegación</span>
-  <a href="index.html">Inicio</a>
-  <a href="catalogo.html">Catálogo ↗</a>
-  <a href="spectracloud.html">SpectraCloud</a>
-  <a href="soporte.html">Soporte</a>
-  <a href="contacto.html">Contacto</a>
-  <span class="mobile-nav-section-label">// Productos</span>
-  <a href="spectralog-blackbox.html">SpectraLog BlackBox LR</a>
-  <a href="contacto.html" class="mobile-nav-cta">SOLICITAR COTIZACIÓN →</a>
-</nav>
- 
-<script>
-  // Hamburger toggle
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const mobileDrawer = document.getElementById('mobile-nav-drawer');
-  if (hamburgerBtn && mobileDrawer) {
-    hamburgerBtn.addEventListener('click', () => {
-      hamburgerBtn.classList.toggle('active');
-      mobileDrawer.classList.toggle('open');
-      document.body.style.overflow = mobileDrawer.classList.contains('open') ? 'hidden' : '';
-    });
-    // Cerrar al hacer click en un link
-    mobileDrawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburgerBtn.classList.remove('active');
-        mobileDrawer.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-</script>
-        <div class="header-alignment-inner">
+<div class="header-alignment-inner">
             <div class="header__logo">
                 <a href="index.html" class="header__heading-link">
                     <span>SPECTRA INSTRUMENTS</span>
@@ -99,10 +71,41 @@
                     <li><a href="soporte.html" class="header__menu-item"><span>Soporte</span></a></li>
                     <li><a href="contacto.html" class="header__menu-item"><span>Contacto</span></a></li>
                 </ul>
-            </nav>
+                        <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </div>
 </header>
+<nav class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <span class="mobile-nav-section-label">// Navegación</span>
+    <a href="index.html">Inicio</a>
+    <a href="catalogo.html">Catálogo ↗</a>
+    <a href="spectracloud.html">SpectraCloud</a>
+    <a href="soporte.html">Soporte</a>
+    <a href="contacto.html">Contacto</a>
+    <span class="mobile-nav-section-label">// Productos</span>
+    <a href="spectralog-blackbox.html">SpectraLog BlackBox LR</a>
+    <a href="contacto.html" class="mobile-nav-cta">SOLICITAR COTIZACIÓN →</a>
+</nav>
+<script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    if (hamburgerBtn && mobileDrawer) {
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            mobileDrawer.classList.toggle('open');
+            document.body.style.overflow = mobileDrawer.classList.contains('open') ? 'hidden' : '';
+        });
+        mobileDrawer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                mobileDrawer.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+</script>
 
 <main style="padding-top: 80px;">
     

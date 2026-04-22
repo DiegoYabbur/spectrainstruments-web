@@ -5,38 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>SpectraCloud | Panel de Telemetría</title>
     <link rel="stylesheet" href="style.css">
-    <!-- PWA Manifest -->
-<link rel="manifest" href="/manifest.json">
- 
-<!-- Color de la barra de estado del navegador (Android) -->
-<meta name="theme-color" content="#e5a93d">
- 
-<!-- iOS (Safari no lee el manifest) -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Spectra">
-<link rel="apple-touch-icon" href="/icons/icon-180x180.png">
- 
-<!-- Splash screens básicos iOS -->
-<link rel="apple-touch-startup-image" href="/icons/splash-1125x2436.png"
-      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
- 
-<!-- Windows / Edge PWA -->
-<meta name="msapplication-TileColor" content="#111111">
-<meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
- 
-<!-- SEO / Open Graph básico -->
-<meta name="description" content="Instrumentación industrial IoT. Dataloggers LoRaWAN, sensores de precisión y plataforma SpectraCloud para monitoreo en tiempo real.">
-<meta property="og:title" content="Spectra Instruments SpA">
-<meta property="og:description" content="Hardware para entornos extremos. LoRa + RS485 + Solar.">
-<meta property="og:image" content="/icons/icon-512x512.png">
-<meta property="og:type" content="website">
- 
-<!-- CSS responsive (añadir DESPUÉS de style.css) -->
-<link rel="stylesheet" href="responsive-mobile.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
+<style>
         /* === ESTILOS PRO INYECTADOS === */
         .kpi-section-title {
             font-family: 'JetBrains Mono', monospace;
@@ -148,6 +117,17 @@
             .system-grid { grid-template-columns: 1fr; }
         }
     </style>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#e5a93d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Spectra">
+    <link rel="apple-touch-icon" href="/icons/icon-180x180.png">
+    <meta name="msapplication-TileColor" content="#111111">
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+    <meta name="description" content="Instrumentación industrial IoT. Dataloggers LoRaWAN, sensores de precisión y plataforma SpectraCloud para monitoreo en tiempo real.">
+    <link rel="stylesheet" href="responsive-mobile.css">
 </head>
 
 <script>
